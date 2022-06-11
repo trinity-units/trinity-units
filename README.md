@@ -11,6 +11,20 @@ General unit converter aimed at the International System of Units, Imperial Syst
 
 <br>
 
+:bookmark_tabs: Table of Contents
+-----
+* [Supported Units](https://github.com/verbum-paper/verbum-paper#hammer_and_wrench-installation)
+* [Author](https://github.com/verbum-paper/verbum-paper#smiley-author)
+* [License](https://github.com/verbum-paper/verbum-paper#scroll-license)
+-----
+
+<br>
+
+:triangular_ruler: Supported Units
+---
+
+
+
 :smiley: Author
 ---
 
