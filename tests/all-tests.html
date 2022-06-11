@@ -12,10 +12,16 @@
         <script src="../dist/trinity-units.js"></script>
 
         <script>
+            var currentDate = new Date();
+            console.log("Started at " + currentDate.toLocaleString() + "\n\n");
 
-            var trinity = new TrinityUnits();
+            var convert = new TrinityUnits();
 
-            
+            /* 
+            ** Speed.
+            */
+
+            console.log("M/h to Km/h:", convert.pmh(100).toKmh());
 
         </script>
 

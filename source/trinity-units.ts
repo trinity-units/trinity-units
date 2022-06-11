@@ -36,14 +36,63 @@
 **
 */
 
+//
+// Control of measurement units.
+//
+enum UNIT {
+    MPH, // Miles per hour.
+}
+
 class TrinityUnits {
+
+    // General information.
     version = "1.0.0";
     projectPage = "https://github.com/trinity-units/trinity-units";
+    
+    // Controls.
+    unit: number;
+    value: number;
 
+    // Initialize.
     constructor() {
         console.log("Trinity Units v" + this.version);
         console.log("Project page: "+ this.projectPage);
     }
+
+    //
+    // Setters.
+    //
+
+    // Miles per hour.
+    pmh(value: number) {
+        this.unit = UNIT.MPH;
+        this.value = value;
+
+        return this;
+    }
+
+    //
+    // Process data.
+    //
+
+    // Convert to quilometers per hour.
+    toKmh() {
+        return this.toKmhInternal();
+    }
+
+    toKph() {
+        return this.toKmhInternal();
+    }
+
+    toKmhInternal() {
+        switch (this.unit) {
+            case UNIT.MPH:
+                return this.value * 1.60934;
+            default:
+                return 0;
+        }
+    }
+
 }
 
 
