@@ -242,20 +242,18 @@ class TrinityUnits {
     // Convert to meter per second.
     toMps(prefix = '') {
         var value = this.invalid();
-        
+
         switch (this.unit) {
             case UNIT.MPH:
-                return this.value * 0.44704;
+                value = this.value * 0.44704;
             case UNIT.KMH:
-                return this.value * 0.277778;
+                value = this.value * 0.277778;
             case UNIT.FTS:
-                return this.value * 0.3048;
+                value = this.value * 0.3048;
             case UNIT.MPS:
-                return this.value;
+                value = this.value;
             case UNIT.KNOT:
-                return this.value * 0.51444;
-            default:
-                return this.invalid();
+                value = this.value * 0.51444;
         }
 
         return this.processPrefix(prefix, value);
