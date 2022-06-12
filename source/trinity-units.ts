@@ -360,6 +360,14 @@ class TrinityUnits {
         return this;
     }
 
+    // Set yard.
+    yard(value: number) {
+        this.unit = UNIT.YARD;
+        this.value = value;
+
+        return this;
+    }
+
     // -> Process data.
 
     // Convert to quilometers.
@@ -381,6 +389,8 @@ class TrinityUnits {
                 value = this.value / 1000000000000; break;
             case UNIT.MILE:
                 value = this.value * 1.609344; break;
+            case UNIT.YARD:
+                value = this.value * 0.0009144; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -649,7 +659,6 @@ class TrinityUnits {
 
         return this.processPrefix(prefix, value);
     }
-
 }
 
 
