@@ -352,6 +352,14 @@ class TrinityUnits {
         return this;
     }
 
+    // Set mile.
+    mile(value: number) {
+        this.unit = UNIT.MILE;
+        this.value = value;
+
+        return this;
+    }
+
     // -> Process data.
 
     // Convert to quilometers.
@@ -371,6 +379,8 @@ class TrinityUnits {
                 value = this.value / 1000000000; break;
             case UNIT.NM:
                 value = this.value / 1000000000000; break;
+            case UNIT.MILE:
+                value = this.value * 1.609344; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -393,6 +403,8 @@ class TrinityUnits {
                 value = this.value / 1000000; break;
             case UNIT.NM:
                 value = this.value / 1000000000; break;
+            case UNIT.MILE:
+                value = this.value * 1609.344; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -415,6 +427,8 @@ class TrinityUnits {
                 value = this.value / 10000; break;
             case UNIT.NM:
                 value = this.value / 10000000; break;
+            case UNIT.MILE:
+                value = this.value * 160934.4; break;
         }
 
         return this.processPrefix(prefix, value);
