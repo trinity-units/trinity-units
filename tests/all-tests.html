@@ -12,19 +12,29 @@
         <script src="../dist/trinity-units.js"></script>
 
         <script>
+
+            function printSection (section) {
+                console.log("\n");
+                var line = "";
+
+                for (var a=0; a<100; a++)
+                    line += "+";
+
+                console.log(line);
+                console.log("Section: "+ section +"\n\n");
+            }
+
             var currentDate = new Date();
             console.log("Started at " + currentDate.toLocaleString() +"\n\n");
 
             var convert = new TrinityUnits();
-            console.log("\n");
-
             /* 
             ** Speed.
             */
 
-            var value = 10;
+            var value = 33.3;
             
-            console.log("Section: Speed\n\n");
+            printSection("Speed");
 
             console.log(value + " Mph to Mph:",  convert.mph(value).toMph());
             console.log(value + " Mph to Km/h:", convert.mph(value).toKmh());
@@ -68,17 +78,19 @@
             ** Length.
             */
             
-            console.log("Section: Length\n\n");
+            printSection("Length");
 
-            console.log(value + " Km to Km:", convert.km(value).toKm());
-            console.log(value + " Km to m:",  convert.km(value).toM());
-            console.log(value + " Km to m:",  convert.km(value).toM());
-            console.log(value + " Km to m:",  convert.km(value).toM());
-            console.log(value + " Km to m:",  convert.km(value).toM());
-            console.log(value + " Km to m:",  convert.km(value).toM());
-            console.log(value + " Km to m:",  convert.km(value).toM());
-            console.log(value + " Km to m:",  convert.km(value).toM());
-            console.log(value + " Km to m:",  convert.km(value).toM());
+            console.log(value + " Km to Km:",   convert.km(value).toKm());
+            console.log(value + " Km to m:",    convert.km(value).toM());
+            // console.log(value + " Km to cm:",   convert.km(value).toCm());
+            // console.log(value + " Km to mm:",   convert.km(value).toMm());
+            // console.log(value + " Km to μm:",   convert.km(value).toUm());
+            // console.log(value + " Km to nm:",   convert.km(value).toNm());
+            // console.log(value + " Km to mile:", convert.km(value).toMile());
+            // console.log(value + " Km to yard:", convert.km(value).toYard());
+            // console.log(value + " Km to ft:",   convert.km(value).toFt());
+            // console.log(value + " Km to inch:", convert.km(value).toInch());
+            // console.log(value + " Km to nmi:",  convert.km(value).toNmi());
 
 
         </script>
