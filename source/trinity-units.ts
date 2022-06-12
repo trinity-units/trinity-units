@@ -451,6 +451,8 @@ class TrinityUnits {
                 value = this.value / 1000; break;
             case UNIT.NM:
                 value = this.value / 1000000; break;
+            case UNIT.MILE:
+                value = this.value * 1609344; break;
         }
 
         return this.processPrefix(prefix, value);
