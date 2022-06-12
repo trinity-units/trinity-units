@@ -42,6 +42,7 @@ General unit converter aimed at the International System of Units, Imperial Syst
 - Ft (Feet)
 - In (Inches)
 - Nmi (Nautical miles)
+- Ly (Light years)
 
 <br>
 
