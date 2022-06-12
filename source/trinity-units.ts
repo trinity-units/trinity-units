@@ -43,6 +43,7 @@ enum UNIT {
     MPH, // Miles per hour.
     KMH, // Kilometers per hour.
     FTS, // Feet per second.
+    MPS, // Meters per second.
 }
 
 class TrinityUnits {
@@ -117,6 +118,14 @@ class TrinityUnits {
         return this;
     }
 
+    // Set meters per second.
+    mps(value: number) {
+        this.unit = UNIT.MPS;
+        this.value = value;
+
+        return this;
+    }
+
     // -> Process data.
 
     // Convert to miles per hour.
@@ -128,6 +137,8 @@ class TrinityUnits {
                 return this.value * 0.621371;
             case UNIT.FTS:
                 return this.value * 0.681818;
+            case UNIT.MPS:
+                return this.value * 2.23694;
             default:
                 return this.invalid();
         }
@@ -150,6 +161,8 @@ class TrinityUnits {
                 return this.value;
             case UNIT.FTS:
                 return this.value * 1.09728;
+            case UNIT.MPS:
+                return this.value * 3.6;
             default:
                 return this.invalid();
         }
@@ -172,6 +185,8 @@ class TrinityUnits {
                 return this.value * 0.911344;
             case UNIT.FTS:
                 return this.value;
+            case UNIT.MPS:
+                return this.value * 3.28084;
             default:
                 return this.invalid();
         }
@@ -186,6 +201,8 @@ class TrinityUnits {
                 return this.value * 0.277778;
             case UNIT.FTS:
                 return this.value * 0.3048;
+            case UNIT.MPS:
+                return this.value;
             default:
                 return this.invalid();
         }
@@ -200,6 +217,8 @@ class TrinityUnits {
                 return this.value * 0.539957;
             case UNIT.FTS:
                 return this.value * 0.592484;
+            case UNIT.MPS:
+                return this.value * 1.94384;
             default:
                 return this.invalid();
         }
