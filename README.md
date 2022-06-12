@@ -35,7 +35,7 @@ General unit converter aimed at the International System of Units, Imperial Syst
 - M (Meters)
 - Cm (Centimeters)
 - Mm (Millimeters)
-- Um (Micrometers)
+- μm, Um (Micrometers)
 - Nm (Nanometers)
 - Mile (Miles)
 - Yard (Yards)

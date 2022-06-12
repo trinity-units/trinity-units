@@ -326,6 +326,24 @@ class TrinityUnits {
         return this;
     }
 
+    // Set μm, micrometers.
+    μm(value: number) {
+        this.μmInternal(value);
+        return this;
+    }
+
+    um(value: number) {
+        this.μmInternal(value);
+        return this;
+    }
+
+    μmInternal(value: number) {
+        this.unit = UNIT.UM;
+        this.value = value;
+
+        return this;
+    }
+
     // -> Process data.
 
     // Convert to quilometers.
@@ -525,7 +543,6 @@ class TrinityUnits {
 
         return this.processPrefix(prefix, value);
     }
-
 }
 
 
