@@ -44,6 +44,7 @@ enum UNIT {
     KMH, // Kilometers per hour.
     FTS, // Feet per second.
     MPS, // Meters per second.
+    KNOT, // Knots, nautical mile per hour.
 }
 
 class TrinityUnits {
@@ -126,6 +127,14 @@ class TrinityUnits {
         return this;
     }
 
+    // Set knot.
+    knot(value: number) {
+        this.unit = UNIT.KNOT;
+        this.value = value;
+
+        return this;
+    }
+
     // -> Process data.
 
     // Convert to miles per hour.
@@ -139,6 +148,8 @@ class TrinityUnits {
                 return this.value * 0.681818;
             case UNIT.MPS:
                 return this.value * 2.23694;
+            case UNIT.KNOT:
+                return this.value * 1.15078;
             default:
                 return this.invalid();
         }
@@ -163,6 +174,8 @@ class TrinityUnits {
                 return this.value * 1.09728;
             case UNIT.MPS:
                 return this.value * 3.6;
+            case UNIT.KNOT:
+                return this.value * 1.852;
             default:
                 return this.invalid();
         }
@@ -187,6 +200,8 @@ class TrinityUnits {
                 return this.value;
             case UNIT.MPS:
                 return this.value * 3.28084;
+            case UNIT.KNOT:
+                return this.value * 1.68781;
             default:
                 return this.invalid();
         }
@@ -203,6 +218,8 @@ class TrinityUnits {
                 return this.value * 0.3048;
             case UNIT.MPS:
                 return this.value;
+            case UNIT.KNOT:
+                return this.value * 0.51444;
             default:
                 return this.invalid();
         }
@@ -219,11 +236,12 @@ class TrinityUnits {
                 return this.value * 0.592484;
             case UNIT.MPS:
                 return this.value * 1.94384;
+            case UNIT.KNOT:
+                return this.value;
             default:
                 return this.invalid();
         }
     }
-
 }
 
 
