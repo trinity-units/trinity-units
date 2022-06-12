@@ -302,6 +302,14 @@ class TrinityUnits {
         return this;
     }
 
+    // Set meters.
+    m(value: number) {
+        this.unit = UNIT.M;
+        this.value = value;
+
+        return this;
+    }
+
     // -> Process data.
 
     // Convert to quilometers.
@@ -311,6 +319,8 @@ class TrinityUnits {
         switch (this.unit) {
             case UNIT.KM:
                 value = this.value; break;
+            case UNIT.M:
+                value = this.value / 1000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -323,6 +333,8 @@ class TrinityUnits {
         switch (this.unit) {
             case UNIT.KM:
                 value = this.value * 1000; break;
+            case UNIT.M:
+                value = this.value; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -335,6 +347,8 @@ class TrinityUnits {
         switch (this.unit) {
             case UNIT.KM:
                 value = this.value * 100000; break;
+            case UNIT.M:
+                value = this.value * 100; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -347,6 +361,8 @@ class TrinityUnits {
         switch (this.unit) {
             case UNIT.KM:
                 value = this.value * 1000000; break;
+            case UNIT.M:
+                value = this.value * 1000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -359,6 +375,8 @@ class TrinityUnits {
         switch (this.unit) {
             case UNIT.KM:
                 value = this.value * 1000000000; break;
+            case UNIT.M:
+                value = this.value * 1000000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -371,6 +389,8 @@ class TrinityUnits {
         switch (this.unit) {
             case UNIT.KM:
                 value = this.value * 1000000000000; break;
+            case UNIT.M:
+                value = this.value * 1000000000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -383,6 +403,8 @@ class TrinityUnits {
         switch (this.unit) {
             case UNIT.KM:
                 value = this.value * 0.621371; break;
+            case UNIT.M:
+                value = this.value * 0.000621371; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -395,6 +417,8 @@ class TrinityUnits {
         switch (this.unit) {
             case UNIT.KM:
                 value = this.value * 1093.613298; break;
+            case UNIT.M:
+                value = this.value * 1.093613298; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -407,6 +431,8 @@ class TrinityUnits {
         switch (this.unit) {
             case UNIT.KM:
                 value = this.value * 3280.839895; break;
+            case UNIT.M:
+                value = this.value * 3.280839895; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -415,7 +441,7 @@ class TrinityUnits {
     // Convert to inches.
     toIn(prefix = '') {
         var value = this.invalid();
-        
+
         switch (this.unit) {
             case UNIT.KM:
                 value = this.value * 39370.07874; break;
