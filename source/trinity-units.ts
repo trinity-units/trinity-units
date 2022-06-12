@@ -310,6 +310,13 @@ class TrinityUnits {
         return this;
     }
 
+    cm(value: number) {
+        this.unit = UNIT.CM;
+        this.value = value;
+
+        return this;
+    }
+
     // -> Process data.
 
     // Convert to quilometers.
@@ -321,6 +328,8 @@ class TrinityUnits {
                 value = this.value; break;
             case UNIT.M:
                 value = this.value / 1000; break;
+            case UNIT.CM:
+                value = this.value / 100000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -335,6 +344,8 @@ class TrinityUnits {
                 value = this.value * 1000; break;
             case UNIT.M:
                 value = this.value; break;
+            case UNIT.CM:
+                value = this.value / 100; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -349,6 +360,8 @@ class TrinityUnits {
                 value = this.value * 100000; break;
             case UNIT.M:
                 value = this.value * 100; break;
+            case UNIT.CM:
+                value = this.value; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -363,6 +376,8 @@ class TrinityUnits {
                 value = this.value * 1000000; break;
             case UNIT.M:
                 value = this.value * 1000; break;
+            case UNIT.CM:
+                value = this.value * 10; break;
         }
 
         return this.processPrefix(prefix, value);
