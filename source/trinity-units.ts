@@ -90,12 +90,15 @@ class TrinityUnits {
             case "round":
             case "r":
                 return Math.round(finalValue);
+
             case "floor":
             case "f":
                 return Math.floor(finalValue);
+
             case "ceil":
             case "c":
                 return Math.ceil(finalValue);
+
             default:
                 return finalValue;
         }
@@ -175,13 +178,13 @@ class TrinityUnits {
 
         switch (this.unit) {
             case UNIT.MPH:
-                value = this.value;
+                value = this.value; break;
             case UNIT.KMH:
-                value = this.value * 0.621371;
+                value = this.value * 0.621371; break;
             case UNIT.FTS:
-                value = this.value * 0.681818;
+                value = this.value * 0.681818; break;
             case UNIT.MPS:
-                value = this.value * 2.23694;
+                value = this.value * 2.23694; break;
             case UNIT.KNOT:
                 value = this.value * 1.15078;
         }
@@ -203,13 +206,13 @@ class TrinityUnits {
 
         switch (this.unit) {
             case UNIT.MPH:
-                value = this.value * 1.60934;
+                value = this.value * 1.60934; break;
             case UNIT.KMH:
-                value = this.value;
+                value = this.value; break;
             case UNIT.FTS:
-                value = this.value * 1.09728;
+                value = this.value * 1.09728; break;
             case UNIT.MPS:
-                value = this.value * 3.6;
+                value = this.value * 3.6; break;
             case UNIT.KNOT:
                 value = this.value * 1.852;
         }
@@ -231,13 +234,13 @@ class TrinityUnits {
 
         switch (this.unit) {
             case UNIT.MPH:
-                value = this.value * 1.46667;
+                value = this.value * 1.46667; break;
             case UNIT.KMH:
-                value = this.value * 0.911344;
+                value = this.value * 0.911344; break;
             case UNIT.FTS:
-                value = this.value;
+                value = this.value; break;
             case UNIT.MPS:
-                value = this.value * 3.28084;
+                value = this.value * 3.28084; break;
             case UNIT.KNOT:
                 value = this.value * 1.68781;
         }
@@ -251,13 +254,13 @@ class TrinityUnits {
 
         switch (this.unit) {
             case UNIT.MPH:
-                value = this.value * 0.44704;
+                value = this.value * 0.44704; break;
             case UNIT.KMH:
-                value = this.value * 0.277778;
+                value = this.value * 0.277778; break;
             case UNIT.FTS:
-                value = this.value * 0.3048;
+                value = this.value * 0.3048; break;
             case UNIT.MPS:
-                value = this.value;
+                value = this.value; break;
             case UNIT.KNOT:
                 value = this.value * 0.51444;
         }
@@ -271,13 +274,13 @@ class TrinityUnits {
 
         switch (this.unit) {
             case UNIT.MPH:
-                value = this.value * 0.868976;
+                value = this.value * 0.868976; break;
             case UNIT.KMH:
-                value = this.value * 0.539957;
+                value = this.value * 0.539957; break;
             case UNIT.FTS:
-                value = this.value * 0.592484;
+                value = this.value * 0.592484; break;
             case UNIT.MPS:
-                value = this.value * 1.94384;
+                value = this.value * 1.94384; break;
             case UNIT.KNOT:
                 value = this.value;
         }
@@ -307,7 +310,7 @@ class TrinityUnits {
 
         switch (this.unit) {
             case UNIT.KM:
-                value = this.value;
+                value = this.value; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -319,7 +322,7 @@ class TrinityUnits {
 
         switch (this.unit) {
             case UNIT.KM:
-                value = this.value * 1000;
+                value = this.value * 1000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -331,7 +334,7 @@ class TrinityUnits {
 
         switch (this.unit) {
             case UNIT.KM:
-                value = this.value * 100000;
+                value = this.value * 100000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -343,7 +346,19 @@ class TrinityUnits {
 
         switch (this.unit) {
             case UNIT.KM:
-                value = this.value * 1000000;
+                value = this.value * 1000000; break;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
+
+    // Convert to micrometers.
+    toUm(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case UNIT.KM:
+                value = this.value * 1000000000; break;
         }
 
         return this.processPrefix(prefix, value);

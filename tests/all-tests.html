@@ -86,10 +86,8 @@
                               + " - round: "+   convert.km(value).toCm('r')
                               + " - floor: "+   convert.km(value).toCm('f')
                               + " - ceil: "+    convert.km(value).toCm('c'));
-
-            console.log(value + " Km to Mm:",   convert.km(value).toMm('round'));
-
-            // console.log(value + " Km to μm:",   convert.km(value).toUm());
+            console.log(value + " Km to Mm:",   convert.km(value).toMm('r'));
+            console.log(value + " Km to μm:",   convert.km(value).toUm('r'));
             // console.log(value + " Km to Nm:",   convert.km(value).toNm());
             // console.log(value + " Km to Mile:", convert.km(value).toMile());
             // console.log(value + " Km to Yard:", convert.km(value).toYard());
