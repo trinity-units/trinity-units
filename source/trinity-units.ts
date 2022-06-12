@@ -376,6 +376,18 @@ class TrinityUnits {
         return this.processPrefix(prefix, value);
     }
 
+    // Convert to miles.
+    toMile(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case UNIT.KM:
+                value = this.value * 0.621371; break;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
+
     // // -> Length.
     // KM, // Kilometers.
     // M, // Meters.
