@@ -259,6 +259,8 @@ class TrinityUnits {
 
     // Convert to Knots.
     toKnot(prefix = '') {
+        var value = this.invalid();
+
         switch (this.unit) {
             case UNIT.MPH:
                 return this.value * 0.868976;
@@ -269,10 +271,10 @@ class TrinityUnits {
             case UNIT.MPS:
                 return this.value * 1.94384;
             case UNIT.KNOT:
-                return this.value;
-            default:
-                return this.invalid();
+                value = this.value;
         }
+
+        return this.processPrefix(prefix, value);
     }
 
     /*
@@ -293,22 +295,26 @@ class TrinityUnits {
 
     // Convert to quilometers.
     toKm(prefix = '') {
+        var value = this.invalid();
+
         switch (this.unit) {
             case UNIT.KM:
-                return this.value;
-            default:
-                return this.invalid();
+                value = this.value;
         }
+
+        return this.processPrefix(prefix, value);
     }
 
     // Convert to meters.
     toM(prefix = '') {
+        var value = this.invalid();
+
         switch (this.unit) {
             case UNIT.KM:
-                return this.value * 1000;
-            default:
-                return this.invalid();
+                value = this.value * 1000;
         }
+
+        return this.processPrefix(prefix, value);
     }
 
     // Convert to centimeters.
