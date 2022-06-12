@@ -310,8 +310,17 @@ class TrinityUnits {
         return this;
     }
 
+    // Set centimeters.
     cm(value: number) {
         this.unit = UNIT.CM;
+        this.value = value;
+
+        return this;
+    }
+
+    // Set milimeters.
+    mm(value: number) {
+        this.unit = UNIT.MM;
         this.value = value;
 
         return this;
@@ -330,6 +339,8 @@ class TrinityUnits {
                 value = this.value / 1000; break;
             case UNIT.CM:
                 value = this.value / 100000; break;
+            case UNIT.MM:
+                value = this.value / 1000000; break;
         }
 
         return this.processPrefix(prefix, value);
