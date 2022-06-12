@@ -344,6 +344,14 @@ class TrinityUnits {
         return this;
     }
 
+    // set nanometers.
+    nm(value: number) {
+        this.unit = UNIT.NM;
+        this.value = value;
+
+        return this;
+    }
+
     // -> Process data.
 
     // Convert to quilometers.
@@ -361,6 +369,8 @@ class TrinityUnits {
                 value = this.value / 1000000; break;
             case UNIT.UM:
                 value = this.value / 1000000000; break;
+            case UNIT.NM:
+                value = this.value / 1000000000000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -381,6 +391,8 @@ class TrinityUnits {
                 value = this.value / 1000; break;
             case UNIT.UM:
                 value = this.value / 1000000; break;
+            case UNIT.NM:
+                value = this.value / 1000000000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -401,6 +413,8 @@ class TrinityUnits {
                 value = this.value / 10; break;
             case UNIT.UM:
                 value = this.value / 10000; break;
+            case UNIT.NM:
+                value = this.value / 10000000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -565,6 +579,7 @@ class TrinityUnits {
 
         return this.processPrefix(prefix, value);
     }
+
 }
 
 
