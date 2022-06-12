@@ -626,6 +626,30 @@ class TrinityUnits {
         return this.processPrefix(prefix, value);
     }
 
+    // Convert to light years.
+    toLy(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case UNIT.KM:
+                value = this.value * 9460730472580; break;
+            case UNIT.M:
+                value = this.value * 9460730472580; break;
+            case UNIT.CM:
+                value = this.value * 9460730472580; break;
+            case UNIT.MM:
+                value = this.value * 9460730472580; break;
+            case UNIT.UM:
+                value = this.value * 9460730472580; break;
+            case UNIT.NM:
+                value = this.value * 9460730472580; break;
+            case UNIT.MILE:
+                value = this.value * 9460730472580; break;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
+
 }
 
 
