@@ -197,20 +197,22 @@ class TrinityUnits {
     }
 
     toKmhInternal(prefix = '') {
+        var value = this.invalid();
+
         switch (this.unit) {
             case UNIT.MPH:
-                return this.value * 1.60934;
+                value = this.value * 1.60934;
             case UNIT.KMH:
-                return this.value;
+                value = this.value;
             case UNIT.FTS:
-                return this.value * 1.09728;
+                value = this.value * 1.09728;
             case UNIT.MPS:
-                return this.value * 3.6;
+                value = this.value * 3.6;
             case UNIT.KNOT:
-                return this.value * 1.852;
-            default:
-                return this.invalid();
+                value = this.value * 1.852;
         }
+
+        return this.processPrefix(prefix, value);
     }
 
     // Convert to foot per second.
