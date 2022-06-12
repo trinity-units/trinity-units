@@ -445,6 +445,8 @@ class TrinityUnits {
         switch (this.unit) {
             case UNIT.KM:
                 value = this.value * 39370.07874; break;
+            case UNIT.M:
+                value = this.value * 39.37007874; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -457,6 +459,8 @@ class TrinityUnits {
         switch (this.unit) {
             case UNIT.KM:
                 value = this.value * 0.621371; break;
+            case UNIT.M:
+                value = this.value * 0.000621371; break;
         }
 
         return this.processPrefix(prefix, value);
