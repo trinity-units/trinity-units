@@ -13,9 +13,10 @@
 
         <script>
             var currentDate = new Date();
-            console.log("Started at " + currentDate.toLocaleString() + "\n\n");
+            console.log("Started at " + currentDate.toLocaleString() +"\n\n");
 
             var convert = new TrinityUnits();
+            console.log("\n");
 
             /* 
             ** Speed.
@@ -25,17 +26,25 @@
 
             console.log(value + " Mph to Mph:",  convert.mph(value).toMph());
             console.log(value + " Mph to Km/h:", convert.mph(value).toKmh());
-            console.log(value + " Mph to Ft/s:",  convert.mph(value).toFps());
+            console.log(value + " Mph to Ft/s:", convert.mph(value).toFps());
             console.log(value + " Mph to M/s:",  convert.mph(value).toMps());
             console.log(value + " Mph to Knot:", convert.mph(value).toKnot());
 
-            console.log("\n\n");
+            console.log("\n");
 
             console.log(value + " Km/h to Mph:",  convert.kph(value).toMph());
             console.log(value + " Km/h to Km/h:", convert.kmh(value).toKmh());
-            console.log(value + " Km/h to Ft/s:",  convert.kmh(value).toFps());
+            console.log(value + " Km/h to Ft/s:", convert.kmh(value).toFps());
             console.log(value + " Km/h to M/s:",  convert.kmh(value).toMps());
             console.log(value + " Km/h to Knot:", convert.kmh(value).toKnot());
+
+            console.log("\n");
+
+            console.log(value + " Ft/s to Mph:",  convert.fps(value).toMph());
+            console.log(value + " Ft/s to Km/h:", convert.fts(value).toKmh());
+            console.log(value + " Ft/s to Ft/s:", convert.fts(value).toFps());
+            console.log(value + " Ft/s to M/s:",  convert.fts(value).toMps());
+            console.log(value + " Ft/s to Knot:", convert.fts(value).toKnot());
 
         </script>
 

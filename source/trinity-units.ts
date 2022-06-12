@@ -42,6 +42,7 @@
 enum UNIT {
     MPH, // Miles per hour.
     KMH, // Kilometers per hour.
+    FTS, // Feet per second.
 }
 
 class TrinityUnits {
@@ -86,15 +87,31 @@ class TrinityUnits {
         return this;
     }
 
-    // Set kilometers per hour.
     kph(value: number) {
         this.kmhInternal(value);
         return this;
     }
 
-    // Set kilometers per hour.
     kmhInternal(value: number) {
         this.unit = UNIT.KMH;
+        this.value = value;
+
+        return this;
+    }
+
+    // Set feet per second.
+    fts(value: number) {
+        this.ftsInternal(value);
+        return this;
+    }
+
+    fps(value: number) {
+        this.ftsInternal(value);
+        return this;
+    }
+
+    ftsInternal(value: number) {
+        this.unit = UNIT.FTS;
         this.value = value;
 
         return this;
@@ -109,6 +126,8 @@ class TrinityUnits {
                 return this.value;
             case UNIT.KMH:
                 return this.value * 0.621371;
+            case UNIT.FTS:
+                return this.value * 0.681818;
             default:
                 return this.invalid();
         }
@@ -129,6 +148,8 @@ class TrinityUnits {
                 return this.value * 1.60934;
             case UNIT.KMH:
                 return this.value;
+            case UNIT.FTS:
+                return this.value * 1.09728;
             default:
                 return this.invalid();
         }
@@ -149,6 +170,8 @@ class TrinityUnits {
                 return this.value * 1.46667;
             case UNIT.KMH:
                 return this.value * 0.911344;
+            case UNIT.FTS:
+                return this.value;
             default:
                 return this.invalid();
         }
@@ -159,6 +182,10 @@ class TrinityUnits {
         switch (this.unit) {
             case UNIT.MPH:
                 return this.value * 0.44704;
+            case UNIT.KMH:
+                return this.value * 0.277778;
+            case UNIT.FTS:
+                return this.value * 0.3048;
             default:
                 return this.invalid();
         }
@@ -169,6 +196,10 @@ class TrinityUnits {
         switch (this.unit) {
             case UNIT.MPH:
                 return this.value * 0.868976;
+            case UNIT.KMH:
+                return this.value * 0.539957;
+            case UNIT.FTS:
+                return this.value * 0.592484;
             default:
                 return this.invalid();
         }

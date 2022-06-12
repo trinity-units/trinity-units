@@ -27,6 +27,7 @@ General unit converter aimed at the International System of Units, Imperial Syst
 - Mph (Miles per hour)
 - Kmh, Kph (Kilometers per hour)
 - Fps, Fts (Feet per second)
+- Mps (Meters per second)
 
 :smiley: Author
 ---
