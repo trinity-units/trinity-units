@@ -632,19 +632,19 @@ class TrinityUnits {
 
         switch (this.unit) {
             case UNIT.KM:
-                value = this.value * 9460730472580; break;
+                value = this.value / 9461000000000; break;
             case UNIT.M:
-                value = this.value * 9460730472580; break;
+                value = this.value / 9461000000000000; break;
             case UNIT.CM:
-                value = this.value * 9460730472580; break;
+                value = this.value / 946100000000000000; break;
             case UNIT.MM:
-                value = this.value * 9460730472580; break;
+                value = this.value / 9223000000000000000; break;
             case UNIT.UM:
-                value = this.value * 9460730472580; break;
+                value = this.value / 9223000000000000000; break;
             case UNIT.NM:
-                value = this.value * 9460730472580; break;
+                value = this.value / 9223000000000000000; break;
             case UNIT.MILE:
-                value = this.value * 9460730472580; break;
+                value = this.value / 5879000000000; break;
         }
 
         return this.processPrefix(prefix, value);
