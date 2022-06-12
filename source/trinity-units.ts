@@ -189,14 +189,14 @@ class TrinityUnits {
 
     // Convert to quilometers per hour.
     toKmh(prefix = '') {
-        return this.toKmhInternal();
+        return this.toKmhInternal(prefix);
     }
 
     toKph(prefix = '') {
-        return this.toKmhInternal();
+        return this.toKmhInternal(prefix);
     }
 
-    toKmhInternal(prefix = '') {
+    toKmhInternal(prefix: string) {
         var value = this.invalid();
 
         switch (this.unit) {
@@ -224,7 +224,7 @@ class TrinityUnits {
         return this.toFtsInterval(prefix);
     }
 
-    toFtsInterval(prefix = '') {
+    toFtsInterval(prefix: string) {
         var value = this.invalid();
 
         switch (this.unit) {
