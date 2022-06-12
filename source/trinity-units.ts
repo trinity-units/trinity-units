@@ -574,7 +574,7 @@ class TrinityUnits {
         return this.processPrefix(prefix, value);
     }
 
-    // Convert to miles.
+    // Convert to nautical miles.
     toNmi(prefix = '') {
         var value = this.invalid();
 
@@ -589,6 +589,8 @@ class TrinityUnits {
                 value = this.value / 1852000; break;
             case UNIT.UM:
                 value = this.value / 1852000000; break;
+            case UNIT.NM:
+                value = this.value / 1852000000000; break;
         }
 
         return this.processPrefix(prefix, value);
