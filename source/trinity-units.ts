@@ -215,28 +215,30 @@ class TrinityUnits {
 
     // Convert to foot per second.
     toFps(prefix = '') {
-        return this.toFtsInterval();
+        return this.toFtsInterval(prefix);
     }
 
     toFts(prefix = '') {
-        return this.toFtsInterval();
+        return this.toFtsInterval(prefix);
     }
 
     toFtsInterval(prefix = '') {
+        var value = this.invalid();
+
         switch (this.unit) {
             case UNIT.MPH:
-                return this.value * 1.46667;
+                value = this.value * 1.46667;
             case UNIT.KMH:
-                return this.value * 0.911344;
+                value = this.value * 0.911344;
             case UNIT.FTS:
-                return this.value;
+                value = this.value;
             case UNIT.MPS:
-                return this.value * 3.28084;
+                value = this.value * 3.28084;
             case UNIT.KNOT:
-                return this.value * 1.68781;
-            default:
-                return this.invalid();
+                value = this.value * 1.68781;
         }
+
+        return this.processPrefix(prefix, value);
     }
 
     // Convert to meter per second.
