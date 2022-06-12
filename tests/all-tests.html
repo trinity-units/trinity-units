@@ -21,7 +21,21 @@
             ** Speed.
             */
 
-            console.log("Mph to Km/h:", convert.pmh(100).toKmh());
+            var value = 10;
+
+            console.log(value + " Mph to Mph:",  convert.mph(value).toMph());
+            console.log(value + " Mph to Km/h:", convert.mph(value).toKmh());
+            console.log(value + " Mph to Ft/s:",  convert.mph(value).toFps());
+            console.log(value + " Mph to M/s:",  convert.mph(value).toMps());
+            console.log(value + " Mph to Knot:", convert.mph(value).toKnot());
+
+            console.log("\n\n");
+
+            console.log(value + " Km/h to Mph:",  convert.kph(value).toMph());
+            console.log(value + " Km/h to Km/h:", convert.kmh(value).toKmh());
+            console.log(value + " Km/h to Ft/s:",  convert.kmh(value).toFps());
+            console.log(value + " Km/h to M/s:",  convert.kmh(value).toMps());
+            console.log(value + " Km/h to Knot:", convert.kmh(value).toKnot());
 
         </script>
 

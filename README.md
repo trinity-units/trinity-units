@@ -23,7 +23,10 @@ General unit converter aimed at the International System of Units, Imperial Syst
 :triangular_ruler: Supported Units
 ---
 
-
+<b>Speed</b>
+- Mph (Miles per hour)
+- Kmh, Kph (Kilometers per hour)
+- Fps, Fts (Feet per second)
 
 :smiley: Author
 ---

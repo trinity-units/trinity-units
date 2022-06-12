@@ -41,6 +41,7 @@
 //
 enum UNIT {
     MPH, // Miles per hour.
+    KMH, // Kilometers per hour.
 }
 
 class TrinityUnits {
@@ -50,6 +51,7 @@ class TrinityUnits {
     projectPage = "https://github.com/trinity-units/trinity-units";
     
     // Controls.
+    invalidValue = 0;
     unit: number;
     value: number;
 
@@ -59,21 +61,58 @@ class TrinityUnits {
         console.log("Project page: "+ this.projectPage);
     }
 
-    //
-    // Setters.
-    //
+    // Return default invalid value.
+    invalid() {
+        return this.invalidValue;
+    }
 
-    // Miles per hour.
-    pmh(value: number) {
+    /*
+    ** Speed.
+    */
+
+    // -> Setters.
+
+    // Set miles per hour.
+    mph(value: number) {
         this.unit = UNIT.MPH;
         this.value = value;
 
         return this;
     }
 
-    //
-    // Process data.
-    //
+    // Set kilometers per hour.
+    kmh(value: number) {
+        this.kmhInternal(value);
+        return this;
+    }
+
+    // Set kilometers per hour.
+    kph(value: number) {
+        this.kmhInternal(value);
+        return this;
+    }
+
+    // Set kilometers per hour.
+    kmhInternal(value: number) {
+        this.unit = UNIT.KMH;
+        this.value = value;
+
+        return this;
+    }
+
+    // -> Process data.
+
+    // Convert to miles per hour.
+    toMph() {
+        switch (this.unit) {
+            case UNIT.MPH:
+                return this.value;
+            case UNIT.KMH:
+                return this.value * 0.621371;
+            default:
+                return this.invalid();
+        }
+    }
 
     // Convert to quilometers per hour.
     toKmh() {
@@ -88,8 +127,50 @@ class TrinityUnits {
         switch (this.unit) {
             case UNIT.MPH:
                 return this.value * 1.60934;
+            case UNIT.KMH:
+                return this.value;
             default:
-                return 0;
+                return this.invalid();
+        }
+    }
+
+    // Convert to foot per second.
+    toFps() {
+        return this.toFtsInterval();
+    }
+
+    toFts() {
+        return this.toFtsInterval();
+    }
+
+    toFtsInterval() {
+        switch (this.unit) {
+            case UNIT.MPH:
+                return this.value * 1.46667;
+            case UNIT.KMH:
+                return this.value * 0.911344;
+            default:
+                return this.invalid();
+        }
+    }
+
+    // Convert to meter per second.
+    toMps() {
+        switch (this.unit) {
+            case UNIT.MPH:
+                return this.value * 0.44704;
+            default:
+                return this.invalid();
+        }
+    }
+
+    // Convert to Knots.
+    toKnot() {
+        switch (this.unit) {
+            case UNIT.MPH:
+                return this.value * 0.868976;
+            default:
+                return this.invalid();
         }
     }
 
