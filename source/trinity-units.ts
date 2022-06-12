@@ -523,6 +523,8 @@ class TrinityUnits {
                 value = this.value / 1609000000; break;
             case UNIT.NM:
                 value = this.value / 1609000000000; break;
+            case UNIT.MILE:
+                value = this.value; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -545,6 +547,8 @@ class TrinityUnits {
                 value = this.value / 914400; break;
             case UNIT.NM:
                 value = this.value / 914400000; break;
+            case UNIT.MILE:
+                value = this.value * 1760; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -567,6 +571,8 @@ class TrinityUnits {
                 value = this.value / 304800; break;
             case UNIT.NM:
                 value = this.value / 304800000; break;
+            case UNIT.MILE:
+                value = this.value * 5280; break;
         }
 
         return this.processPrefix(prefix, value);
