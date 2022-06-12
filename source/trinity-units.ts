@@ -499,6 +499,8 @@ class TrinityUnits {
                 value = this.value * 0.01093613298; break;
             case UNIT.MM:
                 value = this.value * 0.001093613298; break;
+            case UNIT.UM:
+                value = this.value / 914400; break;
         }
 
         return this.processPrefix(prefix, value);
