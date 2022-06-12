@@ -171,20 +171,22 @@ class TrinityUnits {
 
     // Convert to miles per hour.
     toMph(prefix = '') {
+        var value = this.invalid();
+
         switch (this.unit) {
             case UNIT.MPH:
-                return this.value;
+                value = this.value;
             case UNIT.KMH:
-                return this.value * 0.621371;
+                value = this.value * 0.621371;
             case UNIT.FTS:
-                return this.value * 0.681818;
+                value = this.value * 0.681818;
             case UNIT.MPS:
-                return this.value * 2.23694;
+                value = this.value * 2.23694;
             case UNIT.KNOT:
-                return this.value * 1.15078;
-            default:
-                return this.invalid();
+                value = this.value * 1.15078;
         }
+
+        return this.processPrefix(prefix, value);
     }
 
     // Convert to quilometers per hour.
