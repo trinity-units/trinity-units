@@ -388,6 +388,18 @@ class TrinityUnits {
         return this.processPrefix(prefix, value);
     }
 
+    // Convert to yards.
+    toYard(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case UNIT.KM:
+                value = this.value * 1093.613298; break;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
+
     // // -> Length.
     // KM, // Kilometers.
     // M, // Meters.
