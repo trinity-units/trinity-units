@@ -357,6 +357,8 @@ class TrinityUnits {
                 value = this.value; break;
             case UNIT.CM:
                 value = this.value / 100; break;
+            case UNIT.MM:
+                value = this.value / 1000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -373,6 +375,8 @@ class TrinityUnits {
                 value = this.value * 100; break;
             case UNIT.CM:
                 value = this.value; break;
+            case UNIT.MM:
+                value = this.value / 10; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -389,6 +393,8 @@ class TrinityUnits {
                 value = this.value * 1000; break;
             case UNIT.CM:
                 value = this.value * 10; break;
+            case UNIT.MM:
+                value = this.value; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -405,6 +411,8 @@ class TrinityUnits {
                 value = this.value * 1000000; break;
             case UNIT.CM:
                 value = this.value * 10000; break;
+            case UNIT.MM:
+                value = this.value * 1000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -421,6 +429,8 @@ class TrinityUnits {
                 value = this.value * 1000000000; break;
             case UNIT.CM:
                 value = this.value * 10000000; break;
+            case UNIT.MM:
+                value = this.value * 1000000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -437,6 +447,8 @@ class TrinityUnits {
                 value = this.value * 0.000621371; break;
             case UNIT.CM:
                 value = this.value * 0.00000621371; break;
+            case UNIT.MM:
+                value = this.value * 0.000000621371; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -453,6 +465,8 @@ class TrinityUnits {
                 value = this.value * 1.093613298; break;
             case UNIT.CM:
                 value = this.value * 0.01093613298; break;
+            case UNIT.MM:
+                value = this.value * 0.001093613298; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -469,6 +483,8 @@ class TrinityUnits {
                 value = this.value * 3.280839895; break;
             case UNIT.CM:
                 value = this.value * 0.03280839895; break;
+            case UNIT.MM:
+                value = this.value * 0.003280839895; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -485,6 +501,8 @@ class TrinityUnits {
                 value = this.value * 39.37007874; break;
             case UNIT.CM:
                 value = this.value / 2.54; break;
+            case UNIT.MM:
+                value = this.value / 25.4; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -501,6 +519,8 @@ class TrinityUnits {
                 value = this.value * 0.000621371; break;
             case UNIT.CM:
                 value = this.value / 185200; break;
+            case UNIT.MM:
+                value = this.value / 1852000; break;
         }
 
         return this.processPrefix(prefix, value);
