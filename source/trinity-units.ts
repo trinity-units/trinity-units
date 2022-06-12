@@ -392,6 +392,8 @@ class TrinityUnits {
                 value = this.value * 1000000000; break;
             case UNIT.M:
                 value = this.value * 1000000; break;
+            case UNIT.CM:
+                value = this.value * 10000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -406,6 +408,8 @@ class TrinityUnits {
                 value = this.value * 1000000000000; break;
             case UNIT.M:
                 value = this.value * 1000000000; break;
+            case UNIT.CM:
+                value = this.value * 10000000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -420,6 +424,8 @@ class TrinityUnits {
                 value = this.value * 0.621371; break;
             case UNIT.M:
                 value = this.value * 0.000621371; break;
+            case UNIT.CM:
+                value = this.value * 0.00000621371; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -434,6 +440,8 @@ class TrinityUnits {
                 value = this.value * 1093.613298; break;
             case UNIT.M:
                 value = this.value * 1.093613298; break;
+            case UNIT.CM:
+                value = this.value * 0.01093613298; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -448,6 +456,8 @@ class TrinityUnits {
                 value = this.value * 3280.839895; break;
             case UNIT.M:
                 value = this.value * 3.280839895; break;
+            case UNIT.CM:
+                value = this.value * 0.03280839895; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -462,6 +472,8 @@ class TrinityUnits {
                 value = this.value * 39370.07874; break;
             case UNIT.M:
                 value = this.value * 39.37007874; break;
+            case UNIT.CM:
+                value = this.value / 2.54; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -476,6 +488,8 @@ class TrinityUnits {
                 value = this.value * 0.621371; break;
             case UNIT.M:
                 value = this.value * 0.000621371; break;
+            case UNIT.CM:
+                value = this.value / 185200; break;
         }
 
         return this.processPrefix(prefix, value);
