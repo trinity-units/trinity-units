@@ -40,11 +40,25 @@
 // Control of measurement units.
 //
 enum UNIT {
+
+    // -> Speed.
     MPH, // Miles per hour.
     KMH, // Kilometers per hour.
     FTS, // Feet per second.
     MPS, // Meters per second.
     KNOT, // Knots, nautical mile per hour.
+
+    // -> Length.
+    KM, // Kilometers.
+    M, // Meters.
+    CM, // Centimeters.
+    ML, // Millimeters.
+    NM, // Nano meters.
+    MILE, // Miles.
+    YARD, // Yards.
+    FT, // Feet.
+    INCH, // Inches.
+    NMILE, // Nautical miles.
 }
 
 class TrinityUnits {
@@ -241,6 +255,20 @@ class TrinityUnits {
             default:
                 return this.invalid();
         }
+    }
+
+    /*
+    ** Length.
+    */
+
+    // -> Setters.
+    
+    // Set kilometers.
+    km(value: number) {
+        this.unit = UNIT.KM;
+        this.value = value;
+
+        return this;
     }
 }
 
