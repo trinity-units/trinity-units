@@ -84,6 +84,23 @@ class TrinityUnits {
         return this.invalidValue;
     }
 
+    // Process prefix.
+    processPrefix(prefix: string, finalValue: number) {
+        switch (prefix) {
+            case "round":
+            case "r":
+                return Math.round(finalValue);
+            case "floor":
+            case "f":
+                return Math.floor(finalValue);
+            case "ceil":
+            case "c":
+                return Math.ceil(finalValue);
+            default:
+                return finalValue;
+        }
+    }
+
     /*
     ** Speed.
     */
@@ -153,7 +170,7 @@ class TrinityUnits {
     // -> Process data.
 
     // Convert to miles per hour.
-    toMph() {
+    toMph(prefix = '') {
         switch (this.unit) {
             case UNIT.MPH:
                 return this.value;
@@ -171,15 +188,15 @@ class TrinityUnits {
     }
 
     // Convert to quilometers per hour.
-    toKmh() {
+    toKmh(prefix = '') {
         return this.toKmhInternal();
     }
 
-    toKph() {
+    toKph(prefix = '') {
         return this.toKmhInternal();
     }
 
-    toKmhInternal() {
+    toKmhInternal(prefix = '') {
         switch (this.unit) {
             case UNIT.MPH:
                 return this.value * 1.60934;
@@ -197,15 +214,15 @@ class TrinityUnits {
     }
 
     // Convert to foot per second.
-    toFps() {
+    toFps(prefix = '') {
         return this.toFtsInterval();
     }
 
-    toFts() {
+    toFts(prefix = '') {
         return this.toFtsInterval();
     }
 
-    toFtsInterval() {
+    toFtsInterval(prefix = '') {
         switch (this.unit) {
             case UNIT.MPH:
                 return this.value * 1.46667;
@@ -223,7 +240,7 @@ class TrinityUnits {
     }
 
     // Convert to meter per second.
-    toMps() {
+    toMps(prefix = '') {
         switch (this.unit) {
             case UNIT.MPH:
                 return this.value * 0.44704;
@@ -241,7 +258,7 @@ class TrinityUnits {
     }
 
     // Convert to Knots.
-    toKnot() {
+    toKnot(prefix = '') {
         switch (this.unit) {
             case UNIT.MPH:
                 return this.value * 0.868976;
@@ -275,7 +292,7 @@ class TrinityUnits {
     // -> Process data.
 
     // Convert to quilometers.
-    toKm() {
+    toKm(prefix = '') {
         switch (this.unit) {
             case UNIT.KM:
                 return this.value;
@@ -285,7 +302,7 @@ class TrinityUnits {
     }
 
     // Convert to meters.
-    toM() {
+    toM(prefix = '') {
         switch (this.unit) {
             case UNIT.KM:
                 return this.value * 1000;
@@ -295,13 +312,27 @@ class TrinityUnits {
     }
 
     // Convert to centimeters.
-    toCm() {
+    toCm(prefix = '') {
+        var value = this.invalid();
+
         switch (this.unit) {
             case UNIT.KM:
-                return this.value * 100000;
-            default:
-                return this.invalid();
+                value = this.value * 100000;
         }
+
+        return this.processPrefix(prefix, value);
+    }
+
+    // Convert to millimeters.
+    toMm(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case UNIT.KM:
+                value = this.value * 1000000;
+        }
+
+        return this.processPrefix(prefix, value);
     }
 
     // // -> Length.
