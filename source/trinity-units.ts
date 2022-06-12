@@ -241,6 +241,8 @@ class TrinityUnits {
 
     // Convert to meter per second.
     toMps(prefix = '') {
+        var value = this.invalid();
+        
         switch (this.unit) {
             case UNIT.MPH:
                 return this.value * 0.44704;
@@ -255,6 +257,8 @@ class TrinityUnits {
             default:
                 return this.invalid();
         }
+
+        return this.processPrefix(prefix, value);
     }
 
     // Convert to Knots.
@@ -263,13 +267,13 @@ class TrinityUnits {
 
         switch (this.unit) {
             case UNIT.MPH:
-                return this.value * 0.868976;
+                value = this.value * 0.868976;
             case UNIT.KMH:
-                return this.value * 0.539957;
+                value = this.value * 0.539957;
             case UNIT.FTS:
-                return this.value * 0.592484;
+                value = this.value * 0.592484;
             case UNIT.MPS:
-                return this.value * 1.94384;
+                value = this.value * 1.94384;
             case UNIT.KNOT:
                 value = this.value;
         }
