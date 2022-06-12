@@ -30,6 +30,21 @@ General unit converter aimed at the International System of Units, Imperial Syst
 - Mps (Meters per second)
 - Knot (Nautical miles per hour)
 
+<b>Length</b>
+- Km (Kilometers)
+- M (Meters)
+- Cm (Centimeters)
+- Mm (Millimeters)
+- Um (Micrometers)
+- Nm (Nanometers)
+- Mile (Miles)
+- Yard (Yards)
+- Ft (Feet)
+- In (Inches)
+- Nmi (Nautical miles)
+
+<br>
+
 :smiley: Author
 ---
 

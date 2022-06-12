@@ -52,7 +52,7 @@ enum UNIT {
     KM, // Kilometers.
     M, // Meters.
     CM, // Centimeters.
-    ML, // Millimeters.
+    MM, // Millimeters.
     UM, // Micrometers.
     NM, // Nano meters.
     MILE, // Miles.
@@ -400,18 +400,42 @@ class TrinityUnits {
         return this.processPrefix(prefix, value);
     }
 
-    // // -> Length.
-    // KM, // Kilometers.
-    // M, // Meters.
-    // CM, // Centimeters.
-    // ML, // Millimeters.
-    // UM, // Micrometers.
-    // NM, // Nano meters.
-    // MILE, // Miles.
-    // YARD, // Yards.
-    // FT, // Feet.
-    // INCH, // Inches.
-    // NMILE, // Nautical miles.
+    // Convert to feet.
+    toFt(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case UNIT.KM:
+                value = this.value * 3280.839895; break;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
+
+    // Convert to inches.
+    toIn(prefix = '') {
+        var value = this.invalid();
+        
+        switch (this.unit) {
+            case UNIT.KM:
+                value = this.value * 39370.07874; break;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
+
+    // Convert to miles.
+    toNmi(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case UNIT.KM:
+                value = this.value * 0.621371; break;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
+
 }
 
 
