@@ -441,6 +441,8 @@ class TrinityUnits {
                 value = this.value / 10000000; break;
             case UNIT.MILE:
                 value = this.value * 160934.4; break;
+            case UNIT.YARD:
+                value = this.value * 91.44; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -465,6 +467,8 @@ class TrinityUnits {
                 value = this.value / 1000000; break;
             case UNIT.MILE:
                 value = this.value * 1609344; break;
+            case UNIT.YARD:
+                value = this.value * 914.4; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -489,6 +493,8 @@ class TrinityUnits {
                 value = this.value / 1000; break;
             case UNIT.MILE:
                 value = this.value * 1609344000; break;
+            case UNIT.YARD:
+                value = this.value * 914400; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -513,6 +519,8 @@ class TrinityUnits {
                 value = this.value; break;
             case UNIT.MILE:
                 value = this.value * 1609344000000; break;
+            case UNIT.YARD:
+                value = this.value * 914400000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -537,6 +545,8 @@ class TrinityUnits {
                 value = this.value / 1609000000000; break;
             case UNIT.MILE:
                 value = this.value; break;
+            case UNIT.YARD:
+                value = this.value / 1760; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -561,6 +571,8 @@ class TrinityUnits {
                 value = this.value / 914400000; break;
             case UNIT.MILE:
                 value = this.value * 1760; break;
+            case UNIT.YARD:
+                value = this.value; break;
         }
 
         return this.processPrefix(prefix, value);
