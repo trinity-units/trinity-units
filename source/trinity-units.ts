@@ -362,6 +362,16 @@ class TrinityUnits {
 
     // Set yard.
     yard(value: number) {
+        this.ydInternal(value);
+        return this;
+    }
+
+    yd(value: number) {
+        this.ydInternal(value);
+        return this;
+    }
+
+    ydInternal(value: number) {
         this.unit = UNIT.YARD;
         this.value = value;
 

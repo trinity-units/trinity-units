@@ -38,7 +38,7 @@ General unit converter aimed at the International System of Units, Imperial Syst
 - μm, Um (Micrometers)
 - Nm (Nanometers)
 - Mile (Miles)
-- Yard (Yards)
+- Yard, yd (Yards)
 - Ft (Feet)
 - In (Inches)
 - Nmi (Nautical miles)
