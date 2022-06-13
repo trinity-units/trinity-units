@@ -685,6 +685,8 @@ class TrinityUnits {
                 value = this.value / 9223000000000000000; break;
             case UNIT.MILE:
                 value = this.value / 5879000000000; break;
+            case UNIT.YARD:
+                value = this.value / 10350000000000000; break;
         }
 
         return this.processPrefix(prefix, value);
