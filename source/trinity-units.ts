@@ -452,6 +452,8 @@ class TrinityUnits {
                 value = this.value * 1609.344; break;
             case UNIT.YARD:
                 value = this.value * 0.9144; break;
+            case UNIT.FT:
+                value = this.value * 0.3048; break;
         }
 
         return this.processPrefix(prefix, value);
