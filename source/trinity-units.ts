@@ -771,6 +771,8 @@ class TrinityUnits {
                 value = this.value; break;
             case UNIT.NMILE:
                 value = this.value * 72913.386; break;
+            case UNIT.LY:
+                value = this.value * 3.725e+17;
         }
 
         return this.processPrefix(prefix, value);
@@ -803,6 +805,8 @@ class TrinityUnits {
                 value = this.value / 72913; break;
             case UNIT.NMILE:
                 value = this.value; break;
+            case UNIT.LY:
+                value = this.value * 5.108e+12;
         }
 
         return this.processPrefix(prefix, value);
@@ -835,6 +839,8 @@ class TrinityUnits {
                 value = this.value / 372500000000000000; break;
             case UNIT.NMILE:
                 value = this.value / 5.108e+12; break;
+            case UNIT.LY:
+                value = this.value;
         }
 
         return this.processPrefix(prefix, value);
