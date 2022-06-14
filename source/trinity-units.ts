@@ -710,6 +710,8 @@ class TrinityUnits {
                 value = this.value; break;
             case UNIT.INCH:
                 value = this.value / 12; break;
+            case UNIT.NMILE:
+                value = this.value * 6076.11549; break;
         }
 
         return this.processPrefix(prefix, value);
