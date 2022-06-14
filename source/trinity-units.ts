@@ -60,6 +60,7 @@ enum UNIT {
     FT, // Feet, foot.
     INCH, // Inches.
     NMILE, // Nautical miles.
+    LY, // Light years.
 }
 
 class TrinityUnits {
@@ -427,6 +428,14 @@ class TrinityUnits {
         return this;
     }
 
+    // Set light year.
+    ly(value: number) {
+        this.unit = UNIT.LY;
+        this.value = value;
+
+        return this;
+    }
+
     // -> Process data.
 
     // Convert to quilometers.
@@ -456,6 +465,8 @@ class TrinityUnits {
                 value = this.value * 0.0000254; break;
             case UNIT.NMILE:
                 value = this.value * 1.852; break;
+            case UNIT.LY:
+                value = this.value * 9.461e+12;
         }
 
         return this.processPrefix(prefix, value);
@@ -488,6 +499,8 @@ class TrinityUnits {
                 value = this.value * 0.0254; break;
             case UNIT.NMILE:
                 value = this.value * 1852; break;
+            case UNIT.LY:
+                value = this.value * 9.461e+15;
         }
 
         return this.processPrefix(prefix, value);
@@ -520,6 +533,8 @@ class TrinityUnits {
                 value = this.value * 2.54; break;
             case UNIT.NMILE:
                 value = this.value * 185200; break;
+            case UNIT.LY:
+                value = this.value * 9.461e+17;
         }
 
         return this.processPrefix(prefix, value);
@@ -552,6 +567,8 @@ class TrinityUnits {
                 value = this.value * 25.4; break;
             case UNIT.NMILE:
                 value = this.value * 1852000; break;
+            case UNIT.LY:
+                value = this.value * 9.223e+18;
         }
 
         return this.processPrefix(prefix, value);
@@ -584,6 +601,8 @@ class TrinityUnits {
                 value = this.value * 25400; break;
             case UNIT.NMILE:
                 value = this.value * 1852000000; break;
+            case UNIT.LY:
+                value = this.value * 9.223e+18;
         }
 
         return this.processPrefix(prefix, value);
@@ -616,6 +635,8 @@ class TrinityUnits {
                 value = this.value * 25400000; break;
             case UNIT.NMILE:
                 value = this.value * 1852000000000; break;
+            case UNIT.LY:
+                value = this.value * 9.223e+18;
         }
 
         return this.processPrefix(prefix, value);
@@ -648,6 +669,8 @@ class TrinityUnits {
                 value = this.value / 63360; break;
             case UNIT.NMILE:
                 value = this.value * 1.1507794; break;
+            case UNIT.LY:
+                value = this.value * 5.879e+12;
         }
 
         return this.processPrefix(prefix, value);
@@ -680,6 +703,8 @@ class TrinityUnits {
                 value = this.value / 36; break;
             case UNIT.NMILE:
                 value = this.value * 2025.3718; break;
+            case UNIT.LY:
+                value = this.value * 1.035e+16;
         }
 
         return this.processPrefix(prefix, value);
@@ -712,6 +737,8 @@ class TrinityUnits {
                 value = this.value / 12; break;
             case UNIT.NMILE:
                 value = this.value * 6076.11549; break;
+            case UNIT.LY:
+                value = this.value * 3.104e+16;
         }
 
         return this.processPrefix(prefix, value);
@@ -812,6 +839,7 @@ class TrinityUnits {
 
         return this.processPrefix(prefix, value);
     }
+
 }
 
 
