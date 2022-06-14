@@ -419,6 +419,14 @@ class TrinityUnits {
         return this;
     }
 
+    // Set nautical miles.
+    nmi(value: number) {
+        this.unit = UNIT.NMILE;
+        this.value = value;
+
+        return this;
+    }
+
     // -> Process data.
 
     // Convert to quilometers.
@@ -446,6 +454,8 @@ class TrinityUnits {
                 value = this.value * 0.0003048; break;
             case UNIT.INCH:
                 value = this.value * 0.0000254; break;
+            case UNIT.NMILE:
+                value = this.value * 1.852; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -476,6 +486,8 @@ class TrinityUnits {
                 value = this.value * 0.3048; break;
             case UNIT.INCH:
                 value = this.value * 0.0254; break;
+            case UNIT.NMILE:
+                value = this.value * 1852; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -506,6 +518,8 @@ class TrinityUnits {
                 value = this.value * 30.48; break;
             case UNIT.INCH:
                 value = this.value * 2.54; break;
+            case UNIT.NMILE:
+                value = this.value * 185200; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -780,7 +794,6 @@ class TrinityUnits {
 
         return this.processPrefix(prefix, value);
     }
-
 }
 
 
