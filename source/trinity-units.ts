@@ -624,6 +624,8 @@ class TrinityUnits {
                 value = this.value / 1760; break;
             case UNIT.FT:
                 value = this.value / 5280; break;
+            case UNIT.INCH:
+                value = this.value / 63360; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -652,6 +654,8 @@ class TrinityUnits {
                 value = this.value; break;
             case UNIT.FT:
                 value = this.value / 3; break;
+            case UNIT.INCH:
+                value = this.value / 36; break;
         }
 
         return this.processPrefix(prefix, value);
