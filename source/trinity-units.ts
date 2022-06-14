@@ -57,7 +57,7 @@ enum UNIT {
     NM, // Nano meters.
     MILE, // Miles.
     YARD, // Yards.
-    FT, // Feet.
+    FT, // Feet, foot.
     INCH, // Inches.
     NMILE, // Nautical miles.
 }
@@ -424,6 +424,8 @@ class TrinityUnits {
                 value = this.value * 1.609344; break;
             case UNIT.YARD:
                 value = this.value * 0.0009144; break;
+            case UNIT.FT:
+                value = this.value * 0.0003048; break;
         }
 
         return this.processPrefix(prefix, value);
