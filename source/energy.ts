@@ -1,12 +1,12 @@
 
-/*
+/* 
 ** Trinity Units created by Jessé Silva aka Melchisedech333.
-**
+** 
 ** Melchisedech333: https://github.com/melchisedech333
 ** Project: https://github.com/trinity-units/trinity-units
 ** 
 ** LICENSE:
-**
+** 
 ** Copyright (c) 2022, Melchisedech333.
 ** 
 ** Redistribution and use in source and binary forms, with or without
