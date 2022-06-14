@@ -99,6 +99,7 @@ class TrinityUnits {
     // General information.
     version = "1.0.0";
     projectPage = "https://github.com/trinity-units/trinity-units";
+    author = "Jessé Silva aka Melchisedech333";
     
     // Controls.
     invalidValue = 0;
@@ -107,6 +108,7 @@ class TrinityUnits {
     constructor() {
         console.log("Trinity Units v" + this.version);
         console.log("Project page: "+ this.projectPage);
+        console.log("Author: "+ this.author);
 
         // Prepare class.
         var extendsClasses = [];
