@@ -742,6 +742,8 @@ class TrinityUnits {
                 value = this.value * 12; break;
             case UNIT.INCH:
                 value = this.value; break;
+            case UNIT.NMILE:
+                value = this.value * 72913.386; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -772,6 +774,8 @@ class TrinityUnits {
                 value = this.value * 0.000164579; break;
             case UNIT.INCH:
                 value = this.value / 72913; break;
+            case UNIT.NMILE:
+                value = this.value; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -802,6 +806,8 @@ class TrinityUnits {
                 value = this.value / 31040000000000000; break;
             case UNIT.INCH:
                 value = this.value / 372500000000000000; break;
+            case UNIT.NMILE:
+                value = this.value / 5.108e+12; break;
         }
 
         return this.processPrefix(prefix, value);
