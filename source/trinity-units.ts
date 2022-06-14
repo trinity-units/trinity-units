@@ -550,6 +550,8 @@ class TrinityUnits {
                 value = this.value * 304.8; break;
             case UNIT.INCH:
                 value = this.value * 25.4; break;
+            case UNIT.NMILE:
+                value = this.value * 1852000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -580,6 +582,8 @@ class TrinityUnits {
                 value = this.value * 304800; break;
             case UNIT.INCH:
                 value = this.value * 25400; break;
+            case UNIT.NMILE:
+                value = this.value * 1852000000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -610,6 +614,8 @@ class TrinityUnits {
                 value = this.value * 304800000; break;
             case UNIT.INCH:
                 value = this.value * 25400000; break;
+            case UNIT.NMILE:
+                value = this.value * 1852000000000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -640,6 +646,8 @@ class TrinityUnits {
                 value = this.value / 5280; break;
             case UNIT.INCH:
                 value = this.value / 63360; break;
+            case UNIT.NMILE:
+                value = this.value * 1.15078; break;
         }
 
         return this.processPrefix(prefix, value);
