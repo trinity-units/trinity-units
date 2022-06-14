@@ -122,7 +122,6 @@ class TrinityUnits {
         baseConstructors.forEach(baseConstructor => {
             Object.getOwnPropertyNames(baseConstructor.prototype)
                 .forEach(name => {
-                    console.log('name: ' + name);
 
                     // Ignore methods.
                     if (name != "constructor" && name != "invalid" && name != "processPrefix") {
@@ -130,6 +129,7 @@ class TrinityUnits {
                             baseConstructor.prototype, name
                         ));
                     }
+                    
                 });
             }
         );

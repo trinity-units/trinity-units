@@ -45,7 +45,7 @@ class TrinityUnitsSpeed {
     // External methods.
     invalid() { return 0; }
     processPrefix(prefix: string, value: number) {}
-
+    
     /*
     * -> Setters.
     */
