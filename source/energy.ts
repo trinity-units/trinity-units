@@ -76,6 +76,42 @@ class TrinityUnitsEnergy {
 
         return this.processPrefix(prefix, value);
     }
+
+    // Convert to megajoules.
+    toMj(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case TrinityUnitsBase.J:
+                value = this.value / 1e+6; break;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
+
+    // Convert to gram calories.
+    toGc(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case TrinityUnitsBase.J:
+                value = this.value / 4.184; break;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
+    
+    // Convert to kilocalories.
+    toKc(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case TrinityUnitsBase.J:
+                value = this.value / 4184; break;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
 }
 
 // Add class to mixins control.

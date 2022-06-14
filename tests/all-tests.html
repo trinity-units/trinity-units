@@ -8,9 +8,7 @@
 
         Run all tests.<br>
         To view the results, open the Developer Console.
-
-        <script>var exports = {};</script>
-
+        
         <script src="../dist/trinity-units.js"></script>
         <script src="../dist/speed.js"></script>
         <script src="../dist/length.js"></script>
@@ -266,6 +264,17 @@
             console.log(value + " Ly to Inch:", convert.ly(value).toIn(), "- round: " + convert.ly(value).toIn('r'));
             console.log(value + " Ly to Nmi (miles):", convert.ly(value).toNmi(), "- round: " + convert.ly(value).toNmi('r'));
             console.log(value + " Ly to Ly:",  convert.ly(value).toLy());
+
+            /*
+            ** Energy.
+            */
+            
+            printSection("Energy");
+
+            console.log(value + " J to Kj:",   convert.j(value).toKj());
+            console.log(value + " J to Mj:",   convert.j(value).toMj());
+            console.log(value + " J to Gc:",   convert.j(value).toGc());
+            console.log(value + " J to Kc:",   convert.j(value).toKc());
 
         </script>
 
