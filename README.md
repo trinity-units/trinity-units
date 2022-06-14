@@ -44,6 +44,19 @@ General unit converter aimed at the International System of Units, Imperial Syst
 - Nmi (Nautical miles)
 - Ly (Light years)
 
+<b>Energy</b>
+- J (Joules)
+- MJ (Megajoules)
+- KJ (Kilojoules)
+- GC (Gramcalories)
+- KC (Kilocalories)
+- WH (Watt hours)
+- KWH (Kilowatt hours)
+- EV (Electron volts)
+- BTU (British thermal units)
+- UST (US thermal units)
+- FP (Foot pounds)
+
 <br>
 
 :smiley: Author

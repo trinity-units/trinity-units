@@ -36,32 +36,62 @@
 **
 */
 
+// import { TrinityUnitsSpeed } = from "./speed";
+
 //
 // Control of measurement units.
 //
-enum UNIT {
+enum TrinityUnitsBase {
 
     // -> Speed.
-    MPH, // Miles per hour.
-    KMH, // Kilometers per hour.
-    FTS, // Feet per second.
-    MPS, // Meters per second.
-    KNOT, // Knots, nautical mile per hour.
+    MPH,                // Miles per hour.
+    KMH,                // Kilometers per hour.
+    FTS,                // Feet per second.
+    MPS,                // Meters per second.
+    KNOT,               // Knots, nautical mile per hour.
 
     // -> Length.
-    KM, // Kilometers.
-    M, // Meters.
-    CM, // Centimeters.
-    MM, // Millimeters.
-    UM, // Micrometers.
-    NM, // Nano meters.
-    MILE, // Miles.
-    YARD, // Yards.
-    FT, // Feet, foot.
-    INCH, // Inches.
-    NMILE, // Nautical miles.
-    LY, // Light years.
+    KM,                 // Kilometers.
+    M,                  // Meters.
+    CM,                 // Centimeters.
+    MM,                 // Millimeters.
+    UM,                 // Micrometers.
+    NM,                 // Nano meters.
+    MILE,               // Miles.
+    YARD,               // Yards.
+    FT,                 // Feet, foot.
+    INCH,               // Inches.
+    NMILE,              // Nautical miles.
+    LY,                 // Light years.
+
+    // -> Energy.
+    J,                  // Joules.
+    MJ,                 // Megajoules.
+    KJ,                 // Kilojoules.
+    GC,                 // Gram calories.
+    KC,                 // Kilogram calories.
+    WH,                 // Watt hours.
+    KWH,                // Kilowatt hours.
+    EV,                 // Electron volts.
+    BTU,                // British thermal units.
+    UST,                // US thermal units.
+    FP,                 // Foot pounds.
 }
+
+//
+// Configure interface.
+//
+
+interface TrinityUnits 
+extends 
+    TrinityUnitsSpeed,
+    TrinityUnitsLength,
+    TrinityUnitsEnergy { }
+
+//
+// Prepare class.
+//
+var TrinityUnitsExtendsClasses = [];
 
 class TrinityUnits {
 
@@ -71,13 +101,38 @@ class TrinityUnits {
     
     // Controls.
     invalidValue = 0;
-    unit: number;
-    value: number;
 
     // Initialize.
     constructor() {
         console.log("Trinity Units v" + this.version);
         console.log("Project page: "+ this.projectPage);
+
+        // Prepare class.
+        var extendsClasses = [];
+
+        TrinityUnitsExtendsClasses.forEach(className => {
+            extendsClasses.push(className);
+        });
+
+        this.applyMixins(TrinityUnits, extendsClasses);
+    }
+
+    // Mixins control.
+    applyMixins(derivedConstructor: any, baseConstructors: any[]) {
+        baseConstructors.forEach(baseConstructor => {
+            Object.getOwnPropertyNames(baseConstructor.prototype)
+                .forEach(name => {
+                    console.log('name: ' + name);
+
+                    // Ignore methods.
+                    if (name != "constructor" && name != "invalid" && name != "processPrefix") {
+                        Object.defineProperty(derivedConstructor.prototype, name, Object.getOwnPropertyDescriptor(
+                            baseConstructor.prototype, name
+                        ));
+                    }
+                });
+            }
+        );
     }
 
     // Return default invalid value.
@@ -104,748 +159,6 @@ class TrinityUnits {
                 return finalValue;
         }
     }
-
-    /*
-    ** Speed.
-    */
-
-    // -> Setters.
-
-    // Set miles per hour.
-    mph(value: number) {
-        this.unit = UNIT.MPH;
-        this.value = value;
-
-        return this;
-    }
-
-    // Set kilometers per hour.
-    kmh(value: number) {
-        this.kmhInternal(value);
-        return this;
-    }
-
-    kph(value: number) {
-        this.kmhInternal(value);
-        return this;
-    }
-
-    kmhInternal(value: number) {
-        this.unit = UNIT.KMH;
-        this.value = value;
-
-        return this;
-    }
-
-    // Set feet per second.
-    fts(value: number) {
-        this.ftsInternal(value);
-        return this;
-    }
-
-    fps(value: number) {
-        this.ftsInternal(value);
-        return this;
-    }
-
-    ftsInternal(value: number) {
-        this.unit = UNIT.FTS;
-        this.value = value;
-
-        return this;
-    }
-
-    // Set meters per second.
-    mps(value: number) {
-        this.unit = UNIT.MPS;
-        this.value = value;
-
-        return this;
-    }
-
-    // Set knot.
-    knot(value: number) {
-        this.unit = UNIT.KNOT;
-        this.value = value;
-
-        return this;
-    }
-
-    // -> Process data.
-
-    // Convert to miles per hour.
-    toMph(prefix = '') {
-        var value = this.invalid();
-
-        switch (this.unit) {
-            case UNIT.MPH:
-                value = this.value; break;
-            case UNIT.KMH:
-                value = this.value * 0.621371; break;
-            case UNIT.FTS:
-                value = this.value * 0.681818; break;
-            case UNIT.MPS:
-                value = this.value * 2.23694; break;
-            case UNIT.KNOT:
-                value = this.value * 1.15078;
-        }
-
-        return this.processPrefix(prefix, value);
-    }
-
-    // Convert to quilometers per hour.
-    toKmh(prefix = '') {
-        return this.toKmhInternal(prefix);
-    }
-
-    toKph(prefix = '') {
-        return this.toKmhInternal(prefix);
-    }
-
-    toKmhInternal(prefix: string) {
-        var value = this.invalid();
-
-        switch (this.unit) {
-            case UNIT.MPH:
-                value = this.value * 1.60934; break;
-            case UNIT.KMH:
-                value = this.value; break;
-            case UNIT.FTS:
-                value = this.value * 1.09728; break;
-            case UNIT.MPS:
-                value = this.value * 3.6; break;
-            case UNIT.KNOT:
-                value = this.value * 1.852;
-        }
-
-        return this.processPrefix(prefix, value);
-    }
-
-    // Convert to foot per second.
-    toFps(prefix = '') {
-        return this.toFtsInterval(prefix);
-    }
-
-    toFts(prefix = '') {
-        return this.toFtsInterval(prefix);
-    }
-
-    toFtsInterval(prefix: string) {
-        var value = this.invalid();
-
-        switch (this.unit) {
-            case UNIT.MPH:
-                value = this.value * 1.46667; break;
-            case UNIT.KMH:
-                value = this.value * 0.911344; break;
-            case UNIT.FTS:
-                value = this.value; break;
-            case UNIT.MPS:
-                value = this.value * 3.28084; break;
-            case UNIT.KNOT:
-                value = this.value * 1.68781;
-        }
-
-        return this.processPrefix(prefix, value);
-    }
-
-    // Convert to meter per second.
-    toMps(prefix = '') {
-        var value = this.invalid();
-
-        switch (this.unit) {
-            case UNIT.MPH:
-                value = this.value * 0.44704; break;
-            case UNIT.KMH:
-                value = this.value * 0.277778; break;
-            case UNIT.FTS:
-                value = this.value * 0.3048; break;
-            case UNIT.MPS:
-                value = this.value; break;
-            case UNIT.KNOT:
-                value = this.value * 0.51444;
-        }
-
-        return this.processPrefix(prefix, value);
-    }
-
-    // Convert to Knots.
-    toKnot(prefix = '') {
-        var value = this.invalid();
-
-        switch (this.unit) {
-            case UNIT.MPH:
-                value = this.value * 0.868976; break;
-            case UNIT.KMH:
-                value = this.value * 0.539957; break;
-            case UNIT.FTS:
-                value = this.value * 0.592484; break;
-            case UNIT.MPS:
-                value = this.value * 1.94384; break;
-            case UNIT.KNOT:
-                value = this.value;
-        }
-
-        return this.processPrefix(prefix, value);
-    }
-
-    /*
-    ** Length.
-    */
-
-    // -> Setters.
-    
-    // Set kilometers.
-    km(value: number) {
-        this.unit = UNIT.KM;
-        this.value = value;
-
-        return this;
-    }
-
-    // Set meters.
-    m(value: number) {
-        this.unit = UNIT.M;
-        this.value = value;
-
-        return this;
-    }
-
-    // Set centimeters.
-    cm(value: number) {
-        this.unit = UNIT.CM;
-        this.value = value;
-
-        return this;
-    }
-
-    // Set milimeters.
-    mm(value: number) {
-        this.unit = UNIT.MM;
-        this.value = value;
-
-        return this;
-    }
-
-    // Set μm, micrometers.
-    μm(value: number) {
-        this.μmInternal(value);
-        return this;
-    }
-
-    um(value: number) {
-        this.μmInternal(value);
-        return this;
-    }
-
-    μmInternal(value: number) {
-        this.unit = UNIT.UM;
-        this.value = value;
-
-        return this;
-    }
-
-    // set nanometers.
-    nm(value: number) {
-        this.unit = UNIT.NM;
-        this.value = value;
-
-        return this;
-    }
-
-    // Set mile.
-    mile(value: number) {
-        this.unit = UNIT.MILE;
-        this.value = value;
-
-        return this;
-    }
-
-    // Set yard.
-    yard(value: number) {
-        this.ydInternal(value);
-        return this;
-    }
-
-    yd(value: number) {
-        this.ydInternal(value);
-        return this;
-    }
-
-    ydInternal(value: number) {
-        this.unit = UNIT.YARD;
-        this.value = value;
-
-        return this;
-    }
-
-    // Set foot.
-    foot(value: number) {
-        this.ftInternal(value);
-        return this;
-    }
-
-    ft(value: number) {
-        this.ftInternal(value);
-        return this;
-    }
-
-    feet(value: number) {
-        this.ftInternal(value);
-        return this;
-    }
-
-    ftInternal(value: number) {
-        this.unit = UNIT.FT;
-        this.value = value;
-
-        return this;
-    }
-
-    // Set inch.
-    inch(value: number) {
-        this.inchInternal(value);
-        return this;
-    }
-
-    in(value: number) {
-        this.inchInternal(value);
-        return this;
-    }
-
-    inchInternal(value: number) {
-        this.unit = UNIT.INCH;
-        this.value = value;
-
-        return this;
-    }
-
-    // Set nautical miles.
-    nmi(value: number) {
-        this.unit = UNIT.NMILE;
-        this.value = value;
-
-        return this;
-    }
-
-    // Set light year.
-    ly(value: number) {
-        this.unit = UNIT.LY;
-        this.value = value;
-
-        return this;
-    }
-
-    // -> Process data.
-
-    // Convert to quilometers.
-    toKm(prefix = '') {
-        var value = this.invalid();
-
-        switch (this.unit) {
-            case UNIT.KM:
-                value = this.value; break;
-            case UNIT.M:
-                value = this.value / 1000; break;
-            case UNIT.CM:
-                value = this.value / 100000; break;
-            case UNIT.MM:
-                value = this.value / 1000000; break;
-            case UNIT.UM:
-                value = this.value / 1000000000; break;
-            case UNIT.NM:
-                value = this.value / 1000000000000; break;
-            case UNIT.MILE:
-                value = this.value * 1.609344; break;
-            case UNIT.YARD:
-                value = this.value * 0.0009144; break;
-            case UNIT.FT:
-                value = this.value * 0.0003048; break;
-            case UNIT.INCH:
-                value = this.value * 0.0000254; break;
-            case UNIT.NMILE:
-                value = this.value * 1.852; break;
-            case UNIT.LY:
-                value = this.value * 9.461e+12;
-        }
-
-        return this.processPrefix(prefix, value);
-    }
-
-    // Convert to meters.
-    toM(prefix = '') {
-        var value = this.invalid();
-
-        switch (this.unit) {
-            case UNIT.KM:
-                value = this.value * 1000; break;
-            case UNIT.M:
-                value = this.value; break;
-            case UNIT.CM:
-                value = this.value / 100; break;
-            case UNIT.MM:
-                value = this.value / 1000; break;
-            case UNIT.UM:
-                value = this.value / 1000000; break;
-            case UNIT.NM:
-                value = this.value / 1000000000; break;
-            case UNIT.MILE:
-                value = this.value * 1609.344; break;
-            case UNIT.YARD:
-                value = this.value * 0.9144; break;
-            case UNIT.FT:
-                value = this.value * 0.3048; break;
-            case UNIT.INCH:
-                value = this.value * 0.0254; break;
-            case UNIT.NMILE:
-                value = this.value * 1852; break;
-            case UNIT.LY:
-                value = this.value * 9.461e+15;
-        }
-
-        return this.processPrefix(prefix, value);
-    }
-
-    // Convert to centimeters.
-    toCm(prefix = '') {
-        var value = this.invalid();
-
-        switch (this.unit) {
-            case UNIT.KM:
-                value = this.value * 100000; break;
-            case UNIT.M:
-                value = this.value * 100; break;
-            case UNIT.CM:
-                value = this.value; break;
-            case UNIT.MM:
-                value = this.value / 10; break;
-            case UNIT.UM:
-                value = this.value / 10000; break;
-            case UNIT.NM:
-                value = this.value / 10000000; break;
-            case UNIT.MILE:
-                value = this.value * 160934.4; break;
-            case UNIT.YARD:
-                value = this.value * 91.44; break;
-            case UNIT.FT:
-                value = this.value * 30.48; break;
-            case UNIT.INCH:
-                value = this.value * 2.54; break;
-            case UNIT.NMILE:
-                value = this.value * 185200; break;
-            case UNIT.LY:
-                value = this.value * 9.461e+17;
-        }
-
-        return this.processPrefix(prefix, value);
-    }
-
-    // Convert to millimeters.
-    toMm(prefix = '') {
-        var value = this.invalid();
-
-        switch (this.unit) {
-            case UNIT.KM:
-                value = this.value * 1000000; break;
-            case UNIT.M:
-                value = this.value * 1000; break;
-            case UNIT.CM:
-                value = this.value * 10; break;
-            case UNIT.MM:
-                value = this.value; break;
-            case UNIT.UM:
-                value = this.value / 1000; break;
-            case UNIT.NM:
-                value = this.value / 1000000; break;
-            case UNIT.MILE:
-                value = this.value * 1609344; break;
-            case UNIT.YARD:
-                value = this.value * 914.4; break;
-            case UNIT.FT:
-                value = this.value * 304.8; break;
-            case UNIT.INCH:
-                value = this.value * 25.4; break;
-            case UNIT.NMILE:
-                value = this.value * 1852000; break;
-            case UNIT.LY:
-                value = this.value * 9.223e+18;
-        }
-
-        return this.processPrefix(prefix, value);
-    }
-
-    // Convert to micrometers.
-    toUm(prefix = '') {
-        var value = this.invalid();
-
-        switch (this.unit) {
-            case UNIT.KM:
-                value = this.value * 1000000000; break;
-            case UNIT.M:
-                value = this.value * 1000000; break;
-            case UNIT.CM:
-                value = this.value * 10000; break;
-            case UNIT.MM:
-                value = this.value * 1000; break;
-            case UNIT.UM:
-                value = this.value; break;
-            case UNIT.NM:
-                value = this.value / 1000; break;
-            case UNIT.MILE:
-                value = this.value * 1609344000; break;
-            case UNIT.YARD:
-                value = this.value * 914400; break;
-            case UNIT.FT:
-                value = this.value * 304800; break;
-            case UNIT.INCH:
-                value = this.value * 25400; break;
-            case UNIT.NMILE:
-                value = this.value * 1852000000; break;
-            case UNIT.LY:
-                value = this.value * 9.223e+18;
-        }
-
-        return this.processPrefix(prefix, value);
-    }
-
-    // Convert to nanometers.
-    toNm(prefix = '') {
-        var value = this.invalid();
-
-        switch (this.unit) {
-            case UNIT.KM:
-                value = this.value * 1000000000000; break;
-            case UNIT.M:
-                value = this.value * 1000000000; break;
-            case UNIT.CM:
-                value = this.value * 10000000; break;
-            case UNIT.MM:
-                value = this.value * 1000000; break;
-            case UNIT.UM:
-                value = this.value * 1000; break;
-            case UNIT.NM:
-                value = this.value; break;
-            case UNIT.MILE:
-                value = this.value * 1609344000000; break;
-            case UNIT.YARD:
-                value = this.value * 914400000; break;
-            case UNIT.FT:
-                value = this.value * 304800000; break;
-            case UNIT.INCH:
-                value = this.value * 25400000; break;
-            case UNIT.NMILE:
-                value = this.value * 1852000000000; break;
-            case UNIT.LY:
-                value = this.value * 9.223e+18;
-        }
-
-        return this.processPrefix(prefix, value);
-    }
-
-    // Convert to miles.
-    toMile(prefix = '') {
-        var value = this.invalid();
-
-        switch (this.unit) {
-            case UNIT.KM:
-                value = this.value * 0.621371; break;
-            case UNIT.M:
-                value = this.value * 0.000621371; break;
-            case UNIT.CM:
-                value = this.value * 0.00000621371; break;
-            case UNIT.MM:
-                value = this.value * 0.000000621371; break;
-            case UNIT.UM:
-                value = this.value / 1609000000; break;
-            case UNIT.NM:
-                value = this.value / 1609000000000; break;
-            case UNIT.MILE:
-                value = this.value; break;
-            case UNIT.YARD:
-                value = this.value / 1760; break;
-            case UNIT.FT:
-                value = this.value / 5280; break;
-            case UNIT.INCH:
-                value = this.value / 63360; break;
-            case UNIT.NMILE:
-                value = this.value * 1.1507794; break;
-            case UNIT.LY:
-                value = this.value * 5.879e+12;
-        }
-
-        return this.processPrefix(prefix, value);
-    }
-
-    // Convert to yards.
-    toYard(prefix = '') {
-        var value = this.invalid();
-
-        switch (this.unit) {
-            case UNIT.KM:
-                value = this.value * 1093.613298; break;
-            case UNIT.M:
-                value = this.value * 1.093613298; break;
-            case UNIT.CM:
-                value = this.value * 0.01093613298; break;
-            case UNIT.MM:
-                value = this.value * 0.001093613298; break;
-            case UNIT.UM:
-                value = this.value / 914400; break;
-            case UNIT.NM:
-                value = this.value / 914400000; break;
-            case UNIT.MILE:
-                value = this.value * 1760; break;
-            case UNIT.YARD:
-                value = this.value; break;
-            case UNIT.FT:
-                value = this.value / 3; break;
-            case UNIT.INCH:
-                value = this.value / 36; break;
-            case UNIT.NMILE:
-                value = this.value * 2025.3718; break;
-            case UNIT.LY:
-                value = this.value * 1.035e+16;
-        }
-
-        return this.processPrefix(prefix, value);
-    }
-
-    // Convert to feet.
-    toFt(prefix = '') {
-        var value = this.invalid();
-
-        switch (this.unit) {
-            case UNIT.KM:
-                value = this.value * 3280.839895; break;
-            case UNIT.M:
-                value = this.value * 3.280839895; break;
-            case UNIT.CM:
-                value = this.value * 0.03280839895; break;
-            case UNIT.MM:
-                value = this.value * 0.003280839895; break;
-            case UNIT.UM:
-                value = this.value / 304800; break;
-            case UNIT.NM:
-                value = this.value / 304800000; break;
-            case UNIT.MILE:
-                value = this.value * 5280; break;
-            case UNIT.YARD:
-                value = this.value * 3; break;
-            case UNIT.FT:
-                value = this.value; break;
-            case UNIT.INCH:
-                value = this.value / 12; break;
-            case UNIT.NMILE:
-                value = this.value * 6076.11549; break;
-            case UNIT.LY:
-                value = this.value * 3.104e+16;
-        }
-
-        return this.processPrefix(prefix, value);
-    }
-
-    // Convert to inches.
-    toIn(prefix = '') {
-        var value = this.invalid();
-
-        switch (this.unit) {
-            case UNIT.KM:
-                value = this.value * 39370.07874; break;
-            case UNIT.M:
-                value = this.value * 39.37007874; break;
-            case UNIT.CM:
-                value = this.value / 2.54; break;
-            case UNIT.MM:
-                value = this.value / 25.4; break;
-            case UNIT.UM:
-                value = this.value / 25400; break;
-            case UNIT.NM:
-                value = this.value / 25400000; break;
-            case UNIT.MILE:
-                value = this.value * 63360; break;
-            case UNIT.YARD:
-                value = this.value * 36; break;
-            case UNIT.FT:
-                value = this.value * 12; break;
-            case UNIT.INCH:
-                value = this.value; break;
-            case UNIT.NMILE:
-                value = this.value * 72913.386; break;
-            case UNIT.LY:
-                value = this.value * 3.725e+17;
-        }
-
-        return this.processPrefix(prefix, value);
-    }
-
-    // Convert to nautical miles.
-    toNmi(prefix = '') {
-        var value = this.invalid();
-
-        switch (this.unit) {
-            case UNIT.KM:
-                value = this.value * 0.621371; break;
-            case UNIT.M:
-                value = this.value * 0.000621371; break;
-            case UNIT.CM:
-                value = this.value / 185200; break;
-            case UNIT.MM:
-                value = this.value / 1852000; break;
-            case UNIT.UM:
-                value = this.value / 1852000000; break;
-            case UNIT.NM:
-                value = this.value / 1852000000000; break;
-            case UNIT.MILE:
-                value = this.value / 1.150779; break;
-            case UNIT.YARD:
-                value = this.value * 0.00049373650; break;
-            case UNIT.FT:
-                value = this.value * 0.000164579; break;
-            case UNIT.INCH:
-                value = this.value / 72913; break;
-            case UNIT.NMILE:
-                value = this.value; break;
-            case UNIT.LY:
-                value = this.value * 5.108e+12;
-        }
-
-        return this.processPrefix(prefix, value);
-    }
-
-    // Convert to light years.
-    toLy(prefix = '') {
-        var value = this.invalid();
-
-        switch (this.unit) {
-            case UNIT.KM:
-                value = this.value / 9461000000000; break;
-            case UNIT.M:
-                value = this.value / 9461000000000000; break;
-            case UNIT.CM:
-                value = this.value / 946100000000000000; break;
-            case UNIT.MM:
-                value = this.value / 9223000000000000000; break;
-            case UNIT.UM:
-                value = this.value / 9223000000000000000; break;
-            case UNIT.NM:
-                value = this.value / 9223000000000000000; break;
-            case UNIT.MILE:
-                value = this.value / 5879000000000; break;
-            case UNIT.YARD:
-                value = this.value / 10350000000000000; break;
-            case UNIT.FT:
-                value = this.value / 31040000000000000; break;
-            case UNIT.INCH:
-                value = this.value / 372500000000000000; break;
-            case UNIT.NMILE:
-                value = this.value / 5.108e+12; break;
-            case UNIT.LY:
-                value = this.value;
-        }
-
-        return this.processPrefix(prefix, value);
-    }
-
 }
 
 
