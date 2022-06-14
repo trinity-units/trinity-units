@@ -58,9 +58,81 @@ class TrinityUnitsSpeed {
         return this;
     }
 
+    // Set kilometers per hour.
+    kmh(value: number) {
+        this.kmhInternal(value);
+        return this;
+    }
+
+    kph(value: number) {
+        this.kmhInternal(value);
+        return this;
+    }
+
+    kmhInternal(value: number) {
+        this.unit = TrinityUnitsBase.KMH;
+        this.value = value;
+
+        return this;
+    }
+
+    // Set feet per second.
+    fts(value: number) {
+        this.ftsInternal(value);
+        return this;
+    }
+
+    fps(value: number) {
+        this.ftsInternal(value);
+        return this;
+    }
+
+    ftsInternal(value: number) {
+        this.unit = TrinityUnitsBase.FTS;
+        this.value = value;
+
+        return this;
+    }
+
+    // Set meters per second.
+    mps(value: number) {
+        this.unit = TrinityUnitsBase.MPS;
+        this.value = value;
+
+        return this;
+    }
+
+    // Set knot.
+    knot(value: number) {
+        this.unit = TrinityUnitsBase.KNOT;
+        this.value = value;
+
+        return this;
+    }
+
     /*
     * -> Process data.
     */
+    
+    // Convert to miles per hour.
+    toMph(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case TrinityUnitsBase.MPH:
+                value = this.value; break;
+            case TrinityUnitsBase.KMH:
+                value = this.value * 0.621371; break;
+            case TrinityUnitsBase.FTS:
+                value = this.value * 0.681818; break;
+            case TrinityUnitsBase.MPS:
+                value = this.value * 2.23694; break;
+            case TrinityUnitsBase.KNOT:
+                value = this.value * 1.15078;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
 
     // Convert to quilometers per hour.
     toKmh(prefix = '') {
@@ -90,6 +162,73 @@ class TrinityUnitsSpeed {
         return this.processPrefix(prefix, value);
     }
 
+    // Convert to foot per second.
+    toFps(prefix = '') {
+        return this.toFtsInterval(prefix);
+    }
+
+    toFts(prefix = '') {
+        return this.toFtsInterval(prefix);
+    }
+
+    toFtsInterval(prefix: string) {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case TrinityUnitsBase.MPH:
+                value = this.value * 1.46667; break;
+            case TrinityUnitsBase.KMH:
+                value = this.value * 0.911344; break;
+            case TrinityUnitsBase.FTS:
+                value = this.value; break;
+            case TrinityUnitsBase.MPS:
+                value = this.value * 3.28084; break;
+            case TrinityUnitsBase.KNOT:
+                value = this.value * 1.68781;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
+
+    // Convert to meter per second.
+    toMps(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case TrinityUnitsBase.MPH:
+                value = this.value * 0.44704; break;
+            case TrinityUnitsBase.KMH:
+                value = this.value * 0.277778; break;
+            case TrinityUnitsBase.FTS:
+                value = this.value * 0.3048; break;
+            case TrinityUnitsBase.MPS:
+                value = this.value; break;
+            case TrinityUnitsBase.KNOT:
+                value = this.value * 0.51444;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
+
+    // Convert to Knots.
+    toKnot(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case TrinityUnitsBase.MPH:
+                value = this.value * 0.868976; break;
+            case TrinityUnitsBase.KMH:
+                value = this.value * 0.539957; break;
+            case TrinityUnitsBase.FTS:
+                value = this.value * 0.592484; break;
+            case TrinityUnitsBase.MPS:
+                value = this.value * 1.94384; break;
+            case TrinityUnitsBase.KNOT:
+                value = this.value;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
 }
 
 // Add class to mixins control.
