@@ -738,7 +738,6 @@ class TrinityUnits {
 
         return this.processPrefix(prefix, value);
     }
-    
 }
 
 
