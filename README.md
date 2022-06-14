@@ -39,7 +39,7 @@ General unit converter aimed at the International System of Units, Imperial Syst
 - Nm (Nanometers)
 - Mile (Miles)
 - Yard, yd (Yards)
-- Ft (Feet)
+- Ft, feet, foot (Feet)
 - In (Inches)
 - Nmi (Nautical miles)
 - Ly (Light years)

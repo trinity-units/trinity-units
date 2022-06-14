@@ -378,6 +378,29 @@ class TrinityUnits {
         return this;
     }
 
+    // Set foot.
+    foot(value: number) {
+        this.ftInternal(value);
+        return this;
+    }
+
+    ft(value: number) {
+        this.ftInternal(value);
+        return this;
+    }
+
+    feet(value: number) {
+        this.ftInternal(value);
+        return this;
+    }
+
+    ftInternal(value: number) {
+        this.unit = UNIT.FT;
+        this.value = value;
+
+        return this;
+    }
+
     // -> Process data.
 
     // Convert to quilometers.
@@ -691,6 +714,7 @@ class TrinityUnits {
 
         return this.processPrefix(prefix, value);
     }
+    
 }
 
 
