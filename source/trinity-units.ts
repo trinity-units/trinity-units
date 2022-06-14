@@ -592,6 +592,8 @@ class TrinityUnits {
                 value = this.value; break;
             case UNIT.YARD:
                 value = this.value / 1760; break;
+            case UNIT.FT:
+                value = this.value / 5280; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -618,6 +620,8 @@ class TrinityUnits {
                 value = this.value * 1760; break;
             case UNIT.YARD:
                 value = this.value; break;
+            case UNIT.FT:
+                value = this.value / 3; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -644,6 +648,8 @@ class TrinityUnits {
                 value = this.value * 5280; break;
             case UNIT.YARD:
                 value = this.value * 3; break;
+            case UNIT.FT:
+                value = this.value; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -670,6 +676,8 @@ class TrinityUnits {
                 value = this.value * 63360; break;
             case UNIT.YARD:
                 value = this.value * 36; break;
+            case UNIT.FT:
+                value = this.value * 12; break;
         }
 
         return this.processPrefix(prefix, value);
