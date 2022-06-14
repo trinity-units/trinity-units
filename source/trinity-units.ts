@@ -401,6 +401,24 @@ class TrinityUnits {
         return this;
     }
 
+    // Set inch.
+    inch(value: number) {
+        this.inchInternal(value);
+        return this;
+    }
+
+    in(value: number) {
+        this.inchInternal(value);
+        return this;
+    }
+
+    inchInternal(value: number) {
+        this.unit = UNIT.INCH;
+        this.value = value;
+
+        return this;
+    }
+
     // -> Process data.
 
     // Convert to quilometers.
@@ -426,6 +444,8 @@ class TrinityUnits {
                 value = this.value * 0.0009144; break;
             case UNIT.FT:
                 value = this.value * 0.0003048; break;
+            case UNIT.INCH:
+                value = this.value * 0.0000254; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -454,6 +474,8 @@ class TrinityUnits {
                 value = this.value * 0.9144; break;
             case UNIT.FT:
                 value = this.value * 0.3048; break;
+            case UNIT.INCH:
+                value = this.value * 0.0254; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -738,6 +760,7 @@ class TrinityUnits {
 
         return this.processPrefix(prefix, value);
     }
+
 }
 
 
