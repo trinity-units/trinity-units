@@ -37,7 +37,42 @@
 */
 
 class TrinityUnitsEnergy {
-    fn3(){ console.log('fn3'); }
+    
+    // External attributes.
+    unit: number;
+    value: number;
+
+    // External methods.
+    invalid() { return 0; }
+    processPrefix(prefix: string, value: number) {}
+
+    /*
+    * -> Setters.
+    */
+
+    // Set joules.
+    j(value) {
+        this.value = value;
+        this.unit = TrinityUnitsBase.J;
+
+        return this;
+    }
+
+    /*
+    * -> Process data.
+    */
+
+    // Convert to kilojoules.
+    toKj(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case TrinityUnitsBase.J:
+                value = this.value / 1000; break;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
 }
 
 // Add class to mixins control.
