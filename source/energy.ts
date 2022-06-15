@@ -93,6 +93,14 @@ class TrinityUnitsEnergy {
         return this;
     }
 
+    // Set watt-hours.
+    wh(value) {
+        this.value = value;
+        this.unit = TrinityUnitsBase.WH;
+
+        return this;
+    }
+
     /*
     * -> Process data.
     */
@@ -112,6 +120,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 4.184; break;
             case TrinityUnitsBase.KC:
                 value = this.value * 4.184e+3; break;
+            case TrinityUnitsBase.WH:
+                value = this.value * 3600; break;
         }
 
         return this.processPrefix(prefix, value);
