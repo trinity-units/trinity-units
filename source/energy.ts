@@ -143,6 +143,24 @@ class TrinityUnitsEnergy {
         return this;
     }
 
+    // Set foot-pounds.
+    ftp(value) {
+        this.ftpInternal(value);
+        return this;
+    }
+
+    fp(value) {
+        this.ftpInternal(value);
+        return this;
+    }
+
+    ftpInternal(value) {
+        this.value = value;
+        this.unit = TrinityUnitsBase.FTP;
+
+        return this;
+    }
+
     /*
     * -> Process data.
     */
@@ -172,6 +190,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 1055.056; break;
             case TrinityUnitsBase.UST:
                 value = this.value * 105505585.262; break;
+            case TrinityUnitsBase.FTP:
+                value = this.value * 1.35582; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -465,6 +485,14 @@ class TrinityUnitsEnergy {
 
     // Convert to foot-pound.
     toFp(prefix = '') {
+        return this.toFtpInternal(prefix);
+    }
+
+    toFtp(prefix = '') {
+        return this.toFtpInternal(prefix);
+    }
+
+    toFtpInternal(prefix = '') {
         var value = this.invalid();
 
         switch (this.unit) {

@@ -55,7 +55,7 @@ General unit converter aimed at the International System of Units, Imperial Syst
 - Ev (Electron volts)
 - Btu (British thermal units)
 - Ust, USTherm (US thermal units)
-- Fp (Foot pounds)
+- Ftp, Fp (Foot pounds)
 
 <br>
 

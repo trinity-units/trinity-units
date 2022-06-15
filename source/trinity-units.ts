@@ -76,7 +76,7 @@ enum TrinityUnitsBase {
     EV,                 // Electron volts.
     BTU,                // British thermal units.
     UST,                // US thermal units.
-    FP,                 // Foot pounds.
+    FTP,                // Foot pounds.
 }
 
 //
