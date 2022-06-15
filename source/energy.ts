@@ -101,6 +101,14 @@ class TrinityUnitsEnergy {
         return this;
     }
 
+    // Set kilowatt-hours.
+    kwh(value) {
+        this.value = value;
+        this.unit = TrinityUnitsBase.KWH;
+
+        return this;
+    }
+
     /*
     * -> Process data.
     */
