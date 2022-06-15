@@ -282,6 +282,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 2.612569782383E+19; break;
             case TrinityUnitsBase.KC:
                 value = this.value * 2.611e+22; break;
+            case TrinityUnitsBase.WH:
+                value = this.value * 2.2469e+22; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -302,6 +304,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 0.00397; break;
             case TrinityUnitsBase.KC:
                 value = this.value * 3.965667; break;
+            case TrinityUnitsBase.WH:
+                value = this.value * 3.412142; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -330,6 +334,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 3.9657e-8; break;
             case TrinityUnitsBase.KC:
                 value = this.value * 3.9657e-5; break;
+            case TrinityUnitsBase.WH:
+                value = this.value * 3.41296e-5; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -350,6 +356,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 3.086; break;
             case TrinityUnitsBase.KC:
                 value = this.value * 3088.03; break;
+            case TrinityUnitsBase.WH:
+                value = this.value * 2655.22; break;
         }
 
         return this.processPrefix(prefix, value);
