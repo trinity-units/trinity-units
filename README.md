@@ -46,16 +46,16 @@ General unit converter aimed at the International System of Units, Imperial Syst
 
 <b>Energy</b>
 - J (Joules)
-- MJ (Megajoules)
-- KJ (Kilojoules)
-- GC (Gramcalories)
-- KC (Kilocalories)
-- WH (Watt hours)
-- KWH (Kilowatt hours)
-- EV (Electron volts)
-- BTU (British thermal units)
-- UST (US thermal units)
-- FP (Foot pounds)
+- Mj (Megajoules)
+- Kj (Kilojoules)
+- Gc (Gramcalories)
+- Kc, kcal (Kilocalories)
+- Wh (Watt hours)
+- Kwh (Kilowatt hours)
+- Ev (Electron volts)
+- Btu (British thermal units)
+- Ust (US thermal units)
+- Fp (Foot pounds)
 
 <br>
 

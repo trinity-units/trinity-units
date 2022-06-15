@@ -103,11 +103,67 @@ class TrinityUnitsEnergy {
     
     // Convert to kilocalories.
     toKc(prefix = '') {
+        return this.toKcInternal(prefix);
+    }
+
+    toKcal(prefix = '') {
+        return this.toKcInternal(prefix);
+    }
+
+    toKcInternal(prefix = '') {
         var value = this.invalid();
 
         switch (this.unit) {
             case TrinityUnitsBase.J:
                 value = this.value / 4184; break;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
+
+    // Convert to watt hours.
+    toWh(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case TrinityUnitsBase.J:
+                value = this.value / 3600; break;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
+
+    // Convert to kilowatt hours.
+    toKwh(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case TrinityUnitsBase.J:
+                value = this.value / 3.6e+6; break;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
+
+    // Convert to electron volts.
+    toEv(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case TrinityUnitsBase.J:
+                value = this.value * 6.2415093433e+18; break;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
+
+    // Convert to British thermal units.
+    toBtu(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case TrinityUnitsBase.J:
+                value = this.value * 1055.05585262; break;
         }
 
         return this.processPrefix(prefix, value);
