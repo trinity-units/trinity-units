@@ -117,6 +117,14 @@ class TrinityUnitsEnergy {
         return this;
     }
 
+    // Set British thermal units.
+    btu(value) {
+        this.value = value;
+        this.unit = TrinityUnitsBase.BTU;
+
+        return this;
+    }
+
     /*
     * -> Process data.
     */
@@ -142,6 +150,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 3600000; break;
             case TrinityUnitsBase.EV:
                 value = this.value / 6.242e+18; break;
+            case TrinityUnitsBase.BTU:
+                value = this.value * 1055.056; break;
         }
 
         return this.processPrefix(prefix, value);
