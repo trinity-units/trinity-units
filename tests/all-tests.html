@@ -271,16 +271,31 @@
             
             printSection("Energy");
 
-            console.log(value + " J to Kj:",   convert.j(value).toKj());
-            console.log(value + " J to Mj:",   convert.j(value).toMj());
-            console.log(value + " J to Gc:",   convert.j(value).toGc());
-            console.log(value + " J to Kc:",   convert.j(value).toKcal());
-            console.log(value + " J to Wh:",   convert.j(value).toWh());
-            console.log(value + " J to Kwh:",   convert.j(value).toKwh());
-            console.log(value + " J to Ev:",   convert.j(value).toEv());
-            console.log(value + " J to Btu:",   convert.j(value).toBtu());
+            console.log(value + " J to J:",   convert.j(value).toJ());
+            console.log(value + " J to Kj:",  convert.j(value).toKj());
+            console.log(value + " J to Mj:",  convert.j(value).toMj());
+            console.log(value + " J to Gc:",  convert.j(value).toGc());
+            console.log(value + " J to Kc:",  convert.j(value).toKcal());
+            console.log(value + " J to Wh:",  convert.j(value).toWh());
+            console.log(value + " J to Kwh:", convert.j(value).toKwh());
+            console.log(value + " J to Ev:",  convert.j(value).toEv());
+            console.log(value + " J to Btu:", convert.j(value).toBtu());
             console.log(value + " J to US Therm:", convert.j(value).toUst());
             console.log(value + " J to Fp:", convert.j(value).toFp());
+
+            console.log("\n");
+
+            console.log(value + " Kj to J:",   convert.kj(value).toJ());
+            console.log(value + " Kj to Kj:",  convert.kj(value).toKj());
+            console.log(value + " Kj to Mj:",  convert.kj(value).toMj());
+            console.log(value + " Kj to Gc:",  convert.kj(value).toGc());
+            console.log(value + " Kj to Kc:",  convert.kj(value).toKcal());
+            console.log(value + " Kj to Wh:",  convert.kj(value).toWh());
+            console.log(value + " Kj to Kwh:", convert.kj(value).toKwh());
+            console.log(value + " Kj to Ev:",  convert.kj(value).toEv());
+            console.log(value + " Kj to Btu:", convert.kj(value).toBtu());
+            console.log(value + " Kj to US Therm:", convert.kj(value).toUst());
+            console.log(value + " Kj to Fp:", convert.kj(value).toFp());
 
         </script>
 

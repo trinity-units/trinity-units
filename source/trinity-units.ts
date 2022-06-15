@@ -67,8 +67,8 @@ enum TrinityUnitsBase {
 
     // -> Energy.
     J,                  // Joules.
-    MJ,                 // Megajoules.
     KJ,                 // Kilojoules.
+    MJ,                 // Megajoules.
     GC,                 // Gram calories.
     KC,                 // Kilogram calories.
     WH,                 // Watt hours.

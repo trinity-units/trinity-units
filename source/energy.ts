@@ -61,9 +61,31 @@ class TrinityUnitsEnergy {
         return this;
     }
 
+    // Set kilojoules.
+    kj(value) {
+        this.value = value;
+        this.unit = TrinityUnitsBase.KJ;
+
+        return this;
+    }
+
     /*
     * -> Process data.
     */
+
+    // Convert to joules.
+    toJ(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case TrinityUnitsBase.J:
+                value = this.value; break;
+            case TrinityUnitsBase.KJ:
+                value = this.value * 1000; break;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
 
     // Convert to kilojoules.
     toKj(prefix = '') {
@@ -72,6 +94,8 @@ class TrinityUnitsEnergy {
         switch (this.unit) {
             case TrinityUnitsBase.J:
                 value = this.value / 1000; break;
+            case TrinityUnitsBase.KJ:
+                value = this.value; break;
         }
 
         return this.processPrefix(prefix, value);
