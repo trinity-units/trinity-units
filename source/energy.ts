@@ -422,6 +422,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 6.5851e+21; break;
             case TrinityUnitsBase.UST:
                 value = this.value * 6.5851e+26; break;
+            case TrinityUnitsBase.FTP:
+                value = this.value * 8462400000000000000; break;
         }
 
         return this.processPrefix(prefix, value);
