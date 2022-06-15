@@ -226,6 +226,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 0.00094781712; break;
             case TrinityUnitsBase.KJ:
                 value = this.value / 1.055; break;
+            case TrinityUnitsBase.MJ:
+                value = this.value * 947.81712; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -248,6 +250,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 0.0000000094804; break;
             case TrinityUnitsBase.KJ:
                 value = this.value * 0.0000094804; break;
+            case TrinityUnitsBase.MJ:
+                value = this.value * 0.009478; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -262,6 +266,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 0.737562149; break;
             case TrinityUnitsBase.KJ:
                 value = this.value * 737.56; break;
+            case TrinityUnitsBase.MJ:
+                value = this.value * 737562.14928; break;
         }
 
         return this.processPrefix(prefix, value);
