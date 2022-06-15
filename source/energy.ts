@@ -130,6 +130,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 4.184e+3; break;
             case TrinityUnitsBase.WH:
                 value = this.value * 3600; break;
+            case TrinityUnitsBase.KWH:
+                value = this.value * 3600000; break;
         }
 
         return this.processPrefix(prefix, value);
