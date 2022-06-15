@@ -271,7 +271,7 @@ class TrinityUnitsEnergy {
             case TrinityUnitsBase.EV:
                 value = this.value * 3.8267351e-23; break;
             case TrinityUnitsBase.BTU:
-                value = this.value * 0.2388458966; break;
+                value = this.value * 0.25206; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -298,6 +298,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 1000; break;
             case TrinityUnitsBase.EV:
                 value = this.value * 4.4505e-23; break;
+            case TrinityUnitsBase.BTU:
+                value = this.value * 0.293071; break;
         }
 
         return this.processPrefix(prefix, value);
