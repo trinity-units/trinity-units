@@ -487,7 +487,7 @@ class TrinityUnitsEnergy {
             case TrinityUnitsBase.BTU:
                 value = this.value * 778.1693; break;
             case TrinityUnitsBase.UST:
-                value = this.value * 778.1693; break;
+                value = this.value * 77798000; break;
         }
 
         return this.processPrefix(prefix, value);
