@@ -69,6 +69,14 @@ class TrinityUnitsEnergy {
         return this;
     }
 
+    // Set megajoules.
+    mj(value) {
+        this.value = value;
+        this.unit = TrinityUnitsBase.MJ;
+
+        return this;
+    }
+
     /*
     * -> Process data.
     */
@@ -82,6 +90,8 @@ class TrinityUnitsEnergy {
                 value = this.value; break;
             case TrinityUnitsBase.KJ:
                 value = this.value * 1000; break;
+            case TrinityUnitsBase.MJ:
+                value = this.value * 1e+6; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -96,6 +106,8 @@ class TrinityUnitsEnergy {
                 value = this.value / 1000; break;
             case TrinityUnitsBase.KJ:
                 value = this.value; break;
+            case TrinityUnitsBase.MJ:
+                value = this.value * 1000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -110,6 +122,8 @@ class TrinityUnitsEnergy {
                 value = this.value / 1e+6; break;
             case TrinityUnitsBase.KJ:
                 value = this.value / 1000; break;
+            case TrinityUnitsBase.MJ:
+                value = this.value; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -124,6 +138,8 @@ class TrinityUnitsEnergy {
                 value = this.value / 4.184; break;
             case TrinityUnitsBase.KJ:
                 value = this.value * 238.90296; break;
+            case TrinityUnitsBase.MJ:
+                value = this.value * 238902.95762; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -146,6 +162,8 @@ class TrinityUnitsEnergy {
                 value = this.value / 4184; break;
             case TrinityUnitsBase.KJ:
                 value = this.value / 4.184; break;
+            case TrinityUnitsBase.MJ:
+                value = this.value * 239.01; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -160,6 +178,8 @@ class TrinityUnitsEnergy {
                 value = this.value / 3600; break;
             case TrinityUnitsBase.KJ:
                 value = this.value / 3.6; break;
+            case TrinityUnitsBase.MJ:
+                value = this.value * 277.777778; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -174,6 +194,8 @@ class TrinityUnitsEnergy {
                 value = this.value / 3.6e+6; break;
             case TrinityUnitsBase.KJ:
                 value = this.value / 3600; break;
+            case TrinityUnitsBase.MJ:
+                value = this.value / 3.6; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -188,6 +210,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 6.2415093433e+18; break;
             case TrinityUnitsBase.KJ:
                 value = this.value * 6.2415064799632E+21; break;
+            case TrinityUnitsBase.MJ:
+                value = this.value * 6.241506363094E+24; break;
         }
 
         return this.processPrefix(prefix, value);
