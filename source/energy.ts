@@ -109,6 +109,14 @@ class TrinityUnitsEnergy {
         return this;
     }
 
+    // Set electronvolts.
+    ev(value) {
+        this.value = value;
+        this.unit = TrinityUnitsBase.EV;
+
+        return this;
+    }
+
     /*
     * -> Process data.
     */
@@ -132,6 +140,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 3600; break;
             case TrinityUnitsBase.KWH:
                 value = this.value * 3600000; break;
+            case TrinityUnitsBase.EV:
+                value = this.value / 6.242e+18; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -156,6 +166,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 3.6; break;
             case TrinityUnitsBase.KWH:
                 value = this.value * 3600; break;
+            case TrinityUnitsBase.EV:
+                value = this.value * 1.6021774e-22; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -180,6 +192,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 0.0036; break;
             case TrinityUnitsBase.KWH:
                 value = this.value * 3.6; break;
+            case TrinityUnitsBase.EV:
+                value = this.value * 1.6021774e-25; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -204,6 +218,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 860.05065; break;
             case TrinityUnitsBase.KWH:
                 value = this.value * 860050.64743; break;
+            case TrinityUnitsBase.EV:
+                value = this.value * 3.8276489559941e-20; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -236,6 +252,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 0.860421; break;
             case TrinityUnitsBase.KWH:
                 value = this.value * 860.42065; break;
+            case TrinityUnitsBase.EV:
+                value = this.value * 3.8267351e-23; break;
         }
 
         return this.processPrefix(prefix, value);
