@@ -191,7 +191,7 @@ class TrinityUnitsEnergy {
             case TrinityUnitsBase.UST:
                 value = this.value * 105505585.262; break;
             case TrinityUnitsBase.FTP:
-                value = this.value * 1.35582; break;
+                value = this.value * 1.35582; 
         }
 
         return this.processPrefix(prefix, value);
@@ -223,7 +223,7 @@ class TrinityUnitsEnergy {
             case TrinityUnitsBase.UST:
                 value = this.value * 105505.585262; break;
             case TrinityUnitsBase.FTP:
-                value = this.value * 0.0013558179; break;
+                value = this.value * 0.0013558179; 
         }
 
         return this.processPrefix(prefix, value);
@@ -255,7 +255,7 @@ class TrinityUnitsEnergy {
             case TrinityUnitsBase.UST:
                 value = this.value * 105.505585; break;
             case TrinityUnitsBase.FTP:
-                value = this.value * 0.0000014; break;
+                value = this.value * 0.0000014; 
         }
 
         return this.processPrefix(prefix, value);
@@ -287,7 +287,7 @@ class TrinityUnitsEnergy {
             case TrinityUnitsBase.UST:
                 value = this.value * 25216440.07218; break;
             case TrinityUnitsBase.FTP:
-                value = this.value * 0.32391; break;
+                value = this.value * 0.32391; 
         }
 
         return this.processPrefix(prefix, value);
@@ -327,7 +327,7 @@ class TrinityUnitsEnergy {
             case TrinityUnitsBase.UST:
                 value = this.value * 25216.440072; break;
             case TrinityUnitsBase.FTP:
-                value = this.value * 0.0003240483; break;
+                value = this.value * 0.0003240483; 
         }
 
         return this.processPrefix(prefix, value);
@@ -359,7 +359,7 @@ class TrinityUnitsEnergy {
             case TrinityUnitsBase.UST:
                 value = this.value * 29307.107017; break;
             case TrinityUnitsBase.FTP:
-                value = this.value * 0.00037661609675872; break;
+                value = this.value * 0.00037661609675872; 
         }
 
         return this.processPrefix(prefix, value);
@@ -391,7 +391,7 @@ class TrinityUnitsEnergy {
             case TrinityUnitsBase.UST:
                 value = this.value * 29.3071070; break;
             case TrinityUnitsBase.FTP:
-                value = this.value * 0.00000037662; break;
+                value = this.value * 0.00000037662; 
         }
 
         return this.processPrefix(prefix, value);
@@ -423,7 +423,7 @@ class TrinityUnitsEnergy {
             case TrinityUnitsBase.UST:
                 value = this.value * 6.5851e+26; break;
             case TrinityUnitsBase.FTP:
-                value = this.value * 8462400000000000000; break;
+                value = this.value * 8462400000000000000; 
         }
 
         return this.processPrefix(prefix, value);
@@ -454,6 +454,8 @@ class TrinityUnitsEnergy {
                 value = this.value; break;
             case TrinityUnitsBase.UST:
                 value = this.value * 100000; break;
+            case TrinityUnitsBase.FTP:
+                value = this.value * 0.0012851; 
         }
 
         return this.processPrefix(prefix, value);
@@ -492,6 +494,8 @@ class TrinityUnitsEnergy {
                 value = this.value / 100000; break;
             case TrinityUnitsBase.UST:
                 value = this.value; break;
+            case TrinityUnitsBase.FTP:
+                value = this.value * 0.000000012854; 
         }
 
         return this.processPrefix(prefix, value);
@@ -530,6 +534,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 778.1693; break;
             case TrinityUnitsBase.UST:
                 value = this.value * 77798000; break;
+            case TrinityUnitsBase.FTP:
+                value = this.value;
         }
 
         return this.processPrefix(prefix, value);
