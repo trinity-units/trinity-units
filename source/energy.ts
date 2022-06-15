@@ -382,6 +382,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 3412.1416416; break;
             case TrinityUnitsBase.EV:
                 value = this.value * 1.5186e-22; break;
+            case TrinityUnitsBase.BTU:
+                value = this.value; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -416,6 +418,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 0.034130; break;
             case TrinityUnitsBase.EV:
                 value = this.value * 1.5189336881544e-27; break;
+            case TrinityUnitsBase.BTU:
+                value = this.value / 100000; break;
         }
 
         return this.processPrefix(prefix, value);
@@ -442,6 +446,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 2655200; break;
             case TrinityUnitsBase.EV:
                 value = this.value * 0.00000000000000000011817; break;
+            case TrinityUnitsBase.BTU:
+                value = this.value * 778.1693; break;
         }
 
         return this.processPrefix(prefix, value);
