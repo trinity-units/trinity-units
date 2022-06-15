@@ -85,6 +85,14 @@ class TrinityUnitsEnergy {
         return this;
     }
 
+    // Set kilocalories.
+    kc(value) {
+        this.value = value;
+        this.unit = TrinityUnitsBase.KC;
+
+        return this;
+    }
+
     /*
     * -> Process data.
     */
@@ -102,6 +110,8 @@ class TrinityUnitsEnergy {
                 value = this.value * 1e+6; break;
             case TrinityUnitsBase.GC:
                 value = this.value * 4.184; break;
+            case TrinityUnitsBase.KC:
+                value = this.value * 4.184e+3; break;
         }
 
         return this.processPrefix(prefix, value);
