@@ -125,6 +125,24 @@ class TrinityUnitsEnergy {
         return this;
     }
 
+    // Set US Therm.
+    ust(value) {
+        this.ustInternal(value);
+        return this;
+    }
+
+    USTherm(value) {
+        this.ustInternal(value);
+        return this;
+    }
+
+    ustInternal(value) {
+        this.value = value;
+        this.unit = TrinityUnitsBase.UST;
+
+        return this;
+    }
+
     /*
     * -> Process data.
     */
