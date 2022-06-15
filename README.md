@@ -54,7 +54,7 @@ General unit converter aimed at the International System of Units, Imperial Syst
 - Kwh (Kilowatt hours)
 - Ev (Electron volts)
 - Btu (British thermal units)
-- Ust (US thermal units)
+- Ust, USTherm (US thermal units)
 - Fp (Foot pounds)
 
 <br>

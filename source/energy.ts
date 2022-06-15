@@ -163,7 +163,39 @@ class TrinityUnitsEnergy {
 
         switch (this.unit) {
             case TrinityUnitsBase.J:
-                value = this.value * 1055.05585262; break;
+                value = this.value * 0.00094781712; break;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
+
+    // Convert to US Therm.
+    toUst(prefix = '') {
+        return this.toUSThermInternal(prefix);
+    }
+
+    toUSTherm(prefix = '') {
+        return this.toUSThermInternal(prefix);
+    }
+
+    toUSThermInternal(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case TrinityUnitsBase.J:
+                value = this.value * 0.0000000094804; break;
+        }
+
+        return this.processPrefix(prefix, value);
+    }
+
+    // Convert to foot-pound.
+    toFp(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case TrinityUnitsBase.J:
+                value = this.value * 0.737562149; break;
         }
 
         return this.processPrefix(prefix, value);
