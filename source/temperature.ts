@@ -128,7 +128,6 @@ class TrinityUnitsTemperature {
     
         return this.processPrefix(prefix, value);
     }
-
 }
 
 // Add class to mixins control.

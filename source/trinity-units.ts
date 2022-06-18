@@ -87,7 +87,6 @@ enum TrinityUnitsBase {
 //
 // Configure interface.
 //
-
 interface TrinityUnits 
 extends 
     TrinityUnitsSpeed,
