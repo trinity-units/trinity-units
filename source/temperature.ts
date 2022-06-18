@@ -101,7 +101,9 @@ class TrinityUnitsTemperature {
 
         switch (this.unit) {
             case TrinityUnitsBase.K:
-                value = this.value - 273.15; break; 
+                value = this.value - 273.15; break;
+            case TrinityUnitsBase.C:
+                value = this.value; break;
         }
     
         return this.processPrefix(prefix, value);
@@ -113,7 +115,9 @@ class TrinityUnitsTemperature {
 
         switch (this.unit) {
             case TrinityUnitsBase.K:
-                value = (this.value - 273.15) * (9/5) + 32; break; 
+                value = (this.value - 273.15) * (9/5) + 32; break;
+            case TrinityUnitsBase.C:
+                value = this.value * (9/5) + 32; break;
         }
     
         return this.processPrefix(prefix, value);
