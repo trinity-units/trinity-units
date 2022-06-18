@@ -90,6 +90,8 @@ class TrinityUnitsTemperature {
                 value = this.value; break; 
             case TrinityUnitsBase.C:
                 value = this.value + 273.15; break;
+            case TrinityUnitsBase.F:
+                value = (this.value - 32) * (5/9) + 273.15; break;
         }
     
         return this.processPrefix(prefix, value);
@@ -104,6 +106,8 @@ class TrinityUnitsTemperature {
                 value = this.value - 273.15; break;
             case TrinityUnitsBase.C:
                 value = this.value; break;
+            case TrinityUnitsBase.F:
+                value = (this.value - 32) * (5/9); break;
         }
     
         return this.processPrefix(prefix, value);
@@ -118,6 +122,8 @@ class TrinityUnitsTemperature {
                 value = (this.value - 273.15) * (9/5) + 32; break;
             case TrinityUnitsBase.C:
                 value = this.value * (9/5) + 32; break;
+            case TrinityUnitsBase.F:
+                value = this.value; break;
         }
     
         return this.processPrefix(prefix, value);
