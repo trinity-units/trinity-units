@@ -77,6 +77,11 @@ enum TrinityUnitsBase {
     BTU,                // British thermal units.
     UST,                // US thermal units.
     FTP,                // Foot pounds.
+
+    // -> Temperature.
+    K,                  // Kelvin.
+    C,                  // Celsius.
+    F,                  // Fahrenheit.
 }
 
 //

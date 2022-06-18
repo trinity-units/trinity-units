@@ -56,7 +56,7 @@ class TrinityUnitsTemperature {
     // Set kelvin.
     k(value: number) {
         this.value = value;
-        this.unit = 0;
+        this.unit = TrinityUnitsBase.K;
     }
 
     /*
