@@ -57,6 +57,8 @@ class TrinityUnitsTemperature {
     k(value: number) {
         this.value = value;
         this.unit = TrinityUnitsBase.K;
+
+        return this;
     }
 
     /*
