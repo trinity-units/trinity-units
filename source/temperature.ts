@@ -77,6 +77,18 @@ class TrinityUnitsTemperature {
         return this.processPrefix(prefix, value);
     }
 
+    // Convert to celsius.
+    toC(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case TrinityUnitsBase.K:
+                value = this.value - 273.15; break; 
+        }
+    
+        return this.processPrefix(prefix, value);
+    }
+
 }
 
 // Add class to mixins control.
