@@ -89,6 +89,18 @@ class TrinityUnitsTemperature {
         return this.processPrefix(prefix, value);
     }
 
+    // Convert to fahrenheit.
+    toF(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case TrinityUnitsBase.K:
+                value = (this.value - 273.15) * (9/5) + 32; break; 
+        }
+    
+        return this.processPrefix(prefix, value);
+    }
+
 }
 
 // Add class to mixins control.
