@@ -63,6 +63,18 @@ class TrinityUnitsTemperature {
     * -> Process data.
     */
 
+    // Convert to kelvin.
+    toK(prefix = '') {
+        var value = this.invalid();
+
+        switch (this.unit) {
+            case TrinityUnitsBase.K:
+                value = this.value; break; 
+        }
+    
+        return this.processPrefix(prefix, value);
+    }
+
 }
 
 
