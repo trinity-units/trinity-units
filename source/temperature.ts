@@ -77,4 +77,7 @@ class TrinityUnitsTemperature {
 
 }
 
+// Add class to mixins control.
+TrinityUnitsExtendsClasses.push(TrinityUnitsTemperature);
+
 
