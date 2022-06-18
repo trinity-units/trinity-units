@@ -61,6 +61,22 @@ class TrinityUnitsTemperature {
         return this;
     }
 
+    // Set celsius.
+    c(value: number) {
+        this.value = value;
+        this.unit = TrinityUnitsBase.C;
+
+        return this;
+    }
+
+    // Set fahrenheit.
+    f(value: number) {
+        this.value = value;
+        this.unit = TrinityUnitsBase.F;
+        
+        return this;
+    }
+
     /*
     * -> Process data.
     */
