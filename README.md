@@ -57,6 +57,11 @@ General unit converter aimed at the International System of Units, Imperial Syst
 - Ust, USTherm (US thermal units)
 - Ftp, Fp (Foot pounds)
 
+<b>Temperature</b>
+- C (Celsius)
+- F (Fahrenheit)
+- K (Kelvin)
+
 <br>
 
 :smiley: Author
