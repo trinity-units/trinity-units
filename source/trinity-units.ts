@@ -92,7 +92,8 @@ interface TrinityUnits
 extends 
     TrinityUnitsSpeed,
     TrinityUnitsLength,
-    TrinityUnitsEnergy { }
+    TrinityUnitsEnergy,
+    TrinityUnitsTemperature { }
 
 //
 // Prepare class.
