@@ -1,7 +1,7 @@
 
 <div align='center'>
 
-<img src="images/banner.jpg" >
+<img src="https://raw.githubusercontent.com/trinity-units/trinity-units/main/images/banner.jpg" >
 
 </div>
 
