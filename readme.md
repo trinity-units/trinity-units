@@ -1,13 +1,28 @@
-<h2 align=center>
-    <b>Trinity Units</b><br>
-    <a align=center href="https://trinity-units.github.io" >trinity-units.github.io</a>
-</h2>
+
+<div align='center'>
+
+<img src="images/banner.jpg" >
+
+</div>
+
+<br>
+
+<p align="center">
+    <a href="https://github.com/sponsors/melchisedech333"><img src="https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#white" ></a>
+    <br><br>
+    <img src="https://badgen.net/badge/love level/9 of 10/purple" >
+    <img src="https://img.shields.io/github/languages/count/trinity-units/trinity-units?color=%23f34b7d" >
+    <img src="https://img.shields.io/github/languages/top/trinity-units/trinity-units?color=%23f34b7d" >
+    <img src="https://img.shields.io/github/directory-file-count/trinity-units/trinity-units" >
+    <img src="https://img.shields.io/github/repo-size/trinity-units/trinity-units" >
+    <img src="https://img.shields.io/github/license/trinity-units/trinity-units" >
+</p>
 
 General unit converter aimed at the International System of Units, Imperial System and US Costumary Units.
 
 <b>Project under development.</b>
 
-**If my code has helped you, please consider [sponsoring me](https://github.com/sponsors/melchisedech333) :blue_heart:** 
+**If you liked this project, or if it was useful to you, please [consider becoming a sponsor](https://github.com/sponsors/melchisedech333) :blue_heart:**
 
 <br>
 
